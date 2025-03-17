@@ -8,8 +8,8 @@
 <script>hljs.highlightAll();</script>
 
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'python')">python</button>
-  <button class="tablinks" onclick="openCity(event, 'javascript')">javascript</button>
+  <button class="tablinks" onclick="openTab(event, 'python')">python</button>
+  <button class="tablinks" onclick="openTab(event, 'javascript')">javascript</button>
 </div>
 
 <!-- Tab content -->
@@ -26,6 +26,11 @@ console.log(arr[0]());
 console.log(arr[1]());
 console.log(arr[2]());
    </code></pre>
+   <button type="button" class="collapsible">output</button>
+<div class="content">
+  <p>0
+     1
+     2</p>
 </div>
 
 <div id="python" class="tabcontent">
@@ -40,4 +45,15 @@ print(arr[0]())
 print(arr[1]())
 print(arr[2]())
    </code></pre>
+
+   <button type="button" class="collapsible">output</button>
+<div class="content">
+  <p>2
+     2
+     2</p>
 </div>
+</div>
+
+
+
+<div>discussion of example</div>
