@@ -9,20 +9,53 @@
 <script>hljs.highlightAll();</script>
 
 <div class="tab">
-  {% for snippet in snippets %}
-   <button class="tablinks" onclick="openTab(event, '{{ snippet.language }}')">{{ snippet.language }}</button>
-   {% endfor %}
+  
+   <button class="tablinks" onclick="openTab(event, 'python')">python</button>
+   
+   <button class="tablinks" onclick="openTab(event, 'javascript')">javascript</button>
+   
 </div>
 
 <!-- Tab content -->
-{% for snippet in snippets %}
- <div id="{{ snippet.language }}" class="tabcontent">
+
+ <div id="python" class="tabcontent">
   <pre><code>
-{{ snippet.code }}
+arr = []
+
+for i in range(3):
+    arr.append(lambda : i)
+
+print(arr[0]())
+print(arr[1]())
+print(arr[2]())
+
    </code></pre>
-     <p>{{ snippet.output }}</p>
+     <p>2
+2
+2
+</p>
 </div>
- {% endfor %}
+ 
+ <div id="javascript" class="tabcontent">
+  <pre><code>
+const arr = [];
+
+for (let i = 0; i < 3; i++) {
+    arr.push(() => i);
+}
+
+console.log(arr[0]());
+console.log(arr[1]());
+console.log(arr[2]());
+
+   </code></pre>
+     <p>0
+1
+2
+</p>
+</div>
+ 
 
 
- <div>{{ discussion }}</div>
+ <div>blah blah blah
+</div>

@@ -5,13 +5,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/rust.min.js"></script>
 <script>hljs.highlightAll();</script>
 
 <div class="tab">
   
    <button class="tablinks" onclick="openTab(event, 'python')">python</button>
    
-   <button class="tablinks" onclick="openTab(event, 'javascript')">javascript</button>
+   <button class="tablinks" onclick="openTab(event, 'rust')">rust</button>
    
 </div>
 
@@ -19,18 +20,30 @@
 
  <div id="python" class="tabcontent">
   <pre><code>
-     for i in range(3)
+print(1 / 2)
+print(1.0 / 2.0)
+
    </code></pre>
-     <p>0 1 2</p>
+     <p>0.5
+0.5
+
+</p>
 </div>
  
- <div id="javascript" class="tabcontent">
+ <div id="rust" class="tabcontent">
   <pre><code>
-     for (let i == 0;)
+fn main() {
+    println!("{}", 1 / 2);
+    println!("{}", 1.0 / 2.0);
+}
+
    </code></pre>
-     <p>2 2 2</p>
+     <p>0
+0.5
+</p>
 </div>
  
 
 
- <div>blah blah</div>
+ <div>which division you get (integer division or float depends) depends on operator versus operands
+</div>

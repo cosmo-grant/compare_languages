@@ -9,20 +9,41 @@
 <script>hljs.highlightAll();</script>
 
 <div class="tab">
-  {% for snippet in snippets %}
-   <button class="tablinks" onclick="openTab(event, '{{ snippet.language }}')">{{ snippet.language }}</button>
-   {% endfor %}
+  
+   <button class="tablinks" onclick="openTab(event, 'python')">python</button>
+   
+   <button class="tablinks" onclick="openTab(event, 'rust')">rust</button>
+   
 </div>
 
 <!-- Tab content -->
-{% for snippet in snippets %}
- <div id="{{ snippet.language }}" class="tabcontent">
+
+ <div id="python" class="tabcontent">
   <pre><code>
-{{ snippet.code }}
+print(1 / 2)
+print(1.0 / 2.0)
+
    </code></pre>
-     <p>{{ snippet.output }}</p>
+     <p>0.5
+0.5
+
+</p>
 </div>
- {% endfor %}
+ 
+ <div id="rust" class="tabcontent">
+  <pre><code>
+fn main() {
+    println!("{}", 1 / 2);
+    println!("{}", 1.0 / 2.0);
+}
+
+   </code></pre>
+     <p>0
+0.5
+</p>
+</div>
+ 
 
 
- <div>{{ discussion }}</div>
+ <div>which division you get (integer division or float depends) depends on operator versus operands
+</div>
