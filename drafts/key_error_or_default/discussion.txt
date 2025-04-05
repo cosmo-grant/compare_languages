@@ -1,0 +1,7 @@
+Key lookup with the typical `[]` syntax is fussy in Python but relaxed in Ruby.
+
+Defining errors out of existence.
+
+Except you may have to distinguish `nil` because no such key or `nil` because value is `nil` :(
+
+So probably doesn't matter.
