@@ -1,0 +1,28 @@
+ <!-- Tab links -->
+<link rel="stylesheet" href="styles.css">
+<script src="javascript.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/rust.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<div class="tab">
+  {% for snippet in snippets %}
+   <button class="tablinks" onclick="openTab(event, '{{ snippet.language }}')">{{ snippet.language }}</button>
+   {% endfor %}
+</div>
+
+<!-- Tab content -->
+{% for snippet in snippets %}
+ <div id="{{ snippet.language }}" class="tabcontent">
+  <pre><code>
+{{ snippet.code }}
+   </code></pre>
+     <p>{{ snippet.output }}</p>
+</div>
+ {% endfor %}
+
+
+ <div>{{ discussion }}</div>
