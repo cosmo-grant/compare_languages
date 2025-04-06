@@ -1,5 +1,5 @@
 function openTab(event, tabName) {
- 
+
   // Get all elements with class="tabcontent" and hide them
   const tabcontents = [...document.getElementsByClassName("tabcontent")];
   tabcontents.forEach(tabcontent => tabcontent.style.display = "none");
@@ -13,3 +13,9 @@ function openTab(event, tabName) {
   event.currentTarget.classList.add("active");
 }
 
+// Fire a click event on the first tablink when the HTML is loaded
+document.addEventListener('DOMContentLoaded', function () {
+  const clickEvent = new Event("click");
+  const tablinks = [...document.getElementsByClassName("tablinks")];
+  tablinks[0].dispatchEvent(clickEvent);
+});
