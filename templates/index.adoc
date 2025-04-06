@@ -1,0 +1,5 @@
+= Comparisons
+
+{% for comparison in comparisons %}
+* link:{{ comparison.filename }}[{{ comparison.title }}]
+{% endfor %}

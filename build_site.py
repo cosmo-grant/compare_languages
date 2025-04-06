@@ -93,7 +93,7 @@ class Snippet:
 class SiteBuilder:
     env = Environment(loader=FileSystemLoader("templates/"))
     comparison_template = env.get_template("comparison.html")
-    index_template = env.get_template("index.html")
+    index_template = env.get_template("index.adoc")
     comparisons_directory = Path("comparisons")
     # NOTE: When deploying from a branch, github pages only lets you deploy from / or docs/.
     output_directory = Path("docs")
@@ -107,7 +107,7 @@ class SiteBuilder:
         ]
 
     def build_index(self) -> None:
-        content = self.index_template.render(
+        raw_content = self.index_template.render(
             comparisons=[  # TODO: can i just pass self.comparisons?
                 {
                     "title": comparison.title,
@@ -116,10 +116,18 @@ class SiteBuilder:
                 for comparison in self.comparisons
             ]
         )
+        subprocess = run(
+            "asciidoctor -",  # reads from stdin and writes to stdout
+            capture_output=True,
+            check=True,
+            input=raw_content,
+            shell=True,
+            text=True,
+        )
         with open(
             self.output_directory / "index.html", mode="w", encoding="utf-8"
         ) as rendered_index:
-            rendered_index.write(content)
+            rendered_index.write(subprocess.stdout)
 
     def build_comparisons(self) -> None:
         for comparison in self.comparisons:
