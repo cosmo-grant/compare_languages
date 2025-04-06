@@ -9,6 +9,7 @@
 from jinja2 import Environment, FileSystemLoader
 
 from pathlib import Path
+from subprocess import run
 
 
 class Comparison:
@@ -26,10 +27,15 @@ class Comparison:
 
     @property
     def discussion(self) -> str:
-        with open(self.dir / "discussion.txt") as file:
-            discussion = file.read()
-
-        return discussion
+        subprocess = run(
+            "asciidoctor discussion.adoc --out-file=-",
+            cwd=self.dir,
+            shell=True,
+            capture_output=True,
+            check=True,
+        )
+        rendered_discussion = subprocess.stdout.decode()
+        return rendered_discussion
 
     @property
     def title(self) -> str:
