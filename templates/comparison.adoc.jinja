@@ -1,6 +1,10 @@
 = {{ title }}
 :source-highlighter: highlight.js
 
+++++
+<script src="javascript.js"></script>
+++++
+
 [tabs]
 ====
 {% for snippet in snippets %}
@@ -12,7 +16,10 @@
 {{ snippet.code }}
 ----
 
+[.toggle-output]*∨* 
+
 [source,console]
+[role=output]
 ----
 {{ snippet.output }}
 ----
