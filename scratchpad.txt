@@ -1,9 +1,7 @@
-asciidoc for discussions
-preselect one of the tabs
-buttons to toggle output
+hide output by default without triggering click event
 buttons to toggle version info
-title in index
 project README
 command runner to open / preview page
+automatic output verification probably via docker
 snippet -> main
 
