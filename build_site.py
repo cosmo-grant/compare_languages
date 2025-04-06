@@ -138,12 +138,12 @@ class SiteBuilder:
             )
 
             subprocess = run(
-                    "docker container run -i asciidoctor-tabs",
-                    capture_output=True,
-                    check=True,
-                    input=content,
-                    shell=True,
-                    text=True,
+                "docker container run -i asciidoctor-tabs",
+                capture_output=True,
+                check=True,
+                input=content,
+                shell=True,
+                text=True,
             )
             with open(
                 self.output_directory / comparison.output_filename,
