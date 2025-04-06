@@ -135,6 +135,7 @@ class SiteBuilder:
                     for snippet in comparison.snippets
                 ],
                 discussion=comparison.discussion,
+                title=comparison.title,
             )
 
             subprocess = run(
