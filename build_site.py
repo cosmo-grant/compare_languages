@@ -27,15 +27,9 @@ class Comparison:
 
     @property
     def discussion(self) -> str:
-        subprocess = run(
-            "asciidoctor discussion.adoc --out-file=-",
-            cwd=self.dir,
-            shell=True,
-            capture_output=True,
-            check=True,
-        )
-        rendered_discussion = subprocess.stdout.decode()
-        return rendered_discussion
+        with open(self.dir / "discussion.adoc") as f:
+            content = f.read()
+        return content
 
     @property
     def title(self) -> str:
@@ -92,8 +86,8 @@ class Snippet:
 
 class SiteBuilder:
     env = Environment(loader=FileSystemLoader("templates/"))
-    comparison_template = env.get_template("comparison.html")
-    index_template = env.get_template("index.adoc")
+    comparison_template = env.get_template("comparison.adoc.jinja")
+    index_template = env.get_template("index.adoc.jinja")
     comparisons_directory = Path("comparisons")
     # NOTE: When deploying from a branch, github pages only lets you deploy from / or docs/.
     output_directory = Path("docs")
@@ -117,7 +111,7 @@ class SiteBuilder:
             ]
         )
         subprocess = run(
-            "asciidoctor -",  # reads from stdin and writes to stdout
+            "docker container run -i asciidoctor-tabs",
             capture_output=True,
             check=True,
             input=raw_content,
@@ -143,12 +137,20 @@ class SiteBuilder:
                 discussion=comparison.discussion,
             )
 
+            subprocess = run(
+                    "docker container run -i asciidoctor-tabs",
+                    capture_output=True,
+                    check=True,
+                    input=content,
+                    shell=True,
+                    text=True,
+            )
             with open(
                 self.output_directory / comparison.output_filename,
                 mode="w",
                 encoding="utf-8",
             ) as output_file:
-                output_file.write(content)
+                output_file.write(subprocess.stdout)
 
     def build(self) -> None:
         self.build_comparisons()

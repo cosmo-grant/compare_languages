@@ -1,0 +1,20 @@
+[tabs]
+====
+{% for snippet in snippets %}
+{{ snippet.language }}::
++
+--
+[source,{{ snippet.language }}]
+----
+{{ snippet.code }}
+----
+
+[source]
+----
+{{ snippet.output }}
+----
+--
+{% endfor %}
+====
+
+{{ discussion }}
