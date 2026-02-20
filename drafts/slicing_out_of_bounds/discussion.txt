@@ -1,0 +1,5 @@
+Python returns any items with indices in the given range.
+
+This is an example of what John Ousterhout calls "defining errors out of existence".
+
+Go is stricter.

@@ -1,2 +1,2 @@
-my_dict = {"a": 1}
-my_dict["b"]
+d = {"foo": 0}
+print(d["bar"])

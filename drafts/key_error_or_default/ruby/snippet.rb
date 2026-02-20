@@ -1,2 +1,2 @@
-my_hash = {"a" => 1}
-my_hash["b"]
+h = {"foo" => 0}
+h["bar"]

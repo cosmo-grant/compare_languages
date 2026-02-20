@@ -1,1 +1,1 @@
-KeyError: 'b'
+KeyError: 'bar'
