@@ -47,12 +47,12 @@ class Comparison:
 class Snippet:
     """A code snippet and its output."""
 
-    LANGUAGE_TO_EXTENSION = {
-        "go": "go",
-        "javascript": "js",
-        "python": "py",
-        "ruby": "rb",
-        "rust": "rs",
+    EXTENSION_TO_LANGUAGE = {
+        ".go": "golang",
+        ".js": "node",
+        ".py": "python",
+        ".rb": "ruby",
+        ".rs": "rust",
     }
 
     def __init__(self, dir: Path) -> None:
@@ -62,19 +62,23 @@ class Snippet:
         return f"{type(self).__name__}({self.dir!r})"
 
     @property
-    def language(self) -> str:
+    def title(self) -> str:
         return self.dir.name
 
+    def _get_snippet_path(self) -> Path:
+        snippet_paths = list(self.dir.glob("main.*"))
+        assert len(snippet_paths) == 1, (
+            f"Expected exactly 1 file named main.* but found {len(snippet_paths)}."
+        )
+        return snippet_paths[0]
+
     @property
-    def extension(self) -> str:
-        return self.LANGUAGE_TO_EXTENSION[self.language]
+    def language(self) -> str:
+        return self.EXTENSION_TO_LANGUAGE[self._get_snippet_path().suffix]
 
     @property
     def code(self) -> str:
-        with open(self.dir / f"snippet.{self.extension}") as file:
-            code = file.read()
-
-        return code
+        return self._get_snippet_path().read_text()
 
     @property
     def output(self) -> str:
@@ -128,6 +132,7 @@ class SiteBuilder:
             content = self.comparison_template.render(
                 snippets=[
                     {
+                        "title": snippet.title,
                         "language": snippet.language,
                         "code": snippet.code,
                         "output": snippet.output,
