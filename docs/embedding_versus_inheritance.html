@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.26">
-<title>Comparisons</title>
+<title>embedding versus inheritance</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -433,6 +433,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/github.min.css">
 <style>
 /*! Asciidoctor Tabs | Copyright (c) 2018-present Dan Allen | MIT License */
 .tabs {
@@ -548,55 +549,100 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Comparisons</h1>
+<h1>embedding versus inheritance</h1>
 </div>
 <div id="content">
-<div class="ulist">
+<script src="javascript.js"></script>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
 <ul>
-<li>
-<p><a href="function_call_as_function_argument.html">function call as function argument</a></p>
+<li id="_tabs_1_go" class="tab">
+<p>go</p>
 </li>
-<li>
-<p><a href="embedding_versus_inheritance.html">embedding versus inheritance</a></p>
-</li>
-<li>
-<p><a href="return_in_generators.html">return in generators</a></p>
-</li>
-<li>
-<p><a href="slicing_out_of_bounds.html">slicing out of bounds</a></p>
-</li>
-<li>
-<p><a href="loop_scope.html">loop scope</a></p>
-</li>
-<li>
-<p><a href="key_error_or_default.html">key error or default</a></p>
-</li>
-<li>
-<p><a href="redeclaring_in_inner_scope.html">redeclaring in inner scope</a></p>
-</li>
-<li>
-<p><a href="split_with_no_separator.html">split with no separator</a></p>
-</li>
-<li>
-<p><a href="mutable_default_arguments.html">mutable default arguments</a></p>
-</li>
-<li>
-<p><a href="map_views.html">map views</a></p>
-</li>
-<li>
-<p><a href="which_division.html">which division</a></p>
-</li>
-<li>
-<p><a href="type_coercion_and_overloading.html">type coercion and overloading</a></p>
+<li id="_tabs_1_python" class="tab">
+<p>python</p>
 </li>
 </ul>
+</div>
+<div id="_tabs_1_go--panel" class="tabpanel" aria-labelledby="_tabs_1_go">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-golang hljs" data-lang="golang">package main
+
+import "fmt"
+
+type Inner struct{}
+
+type Outer struct{ Inner }
+
+func (i Inner) F() string {
+	return i.G()
+}
+
+func (i Inner) G() string { return "inner" }
+
+func (o Outer) G() string { return "outer" }
+
+func main() {
+	o := Outer{Inner{}}
+	fmt.Println(o.F())
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong class="toggle-output">&#8230;&#8203;</strong></p>
+</div>
+<div class="listingblock output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">inner</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_python--panel" class="tabpanel" aria-labelledby="_tabs_1_python">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class Inner:
+    def F(self):
+        return self.G()
+
+    def G(self):
+        return "inner"
+
+
+class Outer(Inner):
+    def G(self):
+        return "outer"
+
+
+o = Outer()
+print(o.F())</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong class="toggle-output">&#8230;&#8203;</strong></p>
+</div>
+<div class="listingblock output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">outer</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-01 23:48:44 UTC
+Last updated 2026-03-01 23:48:36 UTC
 </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
 <script>
 ;(function () { /*! Asciidoctor Tabs | Copyright (c) 2018-present Dan Allen | MIT License */
   'use strict'
