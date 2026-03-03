@@ -71,22 +71,11 @@ print(d["bar"])
 
   <div id="discussion">
   Key lookup with the typical `[]` syntax is fussy in Python but relaxed in Ruby.
-
-Defining errors out of existence.
-
-Except you may have to distinguish `nil` because no such key or `nil` because value is `nil` :(
-
-Go fixes this with the comma ok.
-
-It's interesting that the `collections.Counter` returns 0 for missing keys.
-
-```python
-from collections import Counter
-
-string = "to be or not to be"
-c = Counter(string.split())
-print(c["question"])
-```
+Defining errors out of existence. Except you may have to distinguish `nil`
+because no such key or `nil` because value is `nil` :( Go fixes this with the
+comma ok. It's interesting that the `collections.Counter` returns 0 for missing
+keys. ```python from collections import Counter string = "to be or not to be" c
+= Counter(string.split()) print(c["question"]) ```
 
   </div>
 <script src="comparison.js"></script>

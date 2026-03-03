@@ -64,9 +64,7 @@ class Snippet:
 
     def _get_snippet_path(self) -> Path:
         snippet_paths = list(self.dir.glob("main.*"))
-        assert len(snippet_paths) == 1, (
-            f"Expected exactly 1 file named main.* but found {len(snippet_paths)}."
-        )
+        assert len(snippet_paths) == 1, f"Expected exactly 1 file named main.* but found {len(snippet_paths)}."
         return snippet_paths[0]
 
     @property
@@ -92,11 +90,7 @@ class SiteBuilder:
 
     @property
     def comparisons(self) -> list[Comparison]:
-        return [
-            Comparison(Path(item))
-            for item in self.comparisons_directory.iterdir()
-            if item.is_dir()
-        ]
+        return [Comparison(Path(item)) for item in self.comparisons_directory.iterdir() if item.is_dir()]
 
     def build_index(self) -> None:
         index_content = self.index_template.render(comparisons=self.comparisons)
