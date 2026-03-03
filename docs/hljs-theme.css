@@ -15,7 +15,7 @@ code.hljs {
 @media (prefers-color-scheme: light) {
   .hljs {
     color: #24292e;
-    background: #fff;
+    background: #f6f8fa;
   }
   .hljs-doctag,
   .hljs-keyword,
@@ -96,7 +96,7 @@ code.hljs {
 @media (prefers-color-scheme: dark) {
   .hljs {
     color: #c9d1d9;
-    background: #0d1117;
+    background: #161b22;
   }
   .hljs-doctag,
   .hljs-keyword,

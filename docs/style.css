@@ -81,31 +81,42 @@ pre {
   overflow-x: auto;
 }
 
+#snippet-container > div {
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background: var(--code-bg);
+}
+
+#snippet-container pre {
+  border: none;
+  border-radius: 0;
+}
+
 #snippet-container > div > pre {
   height: 24rem;
   overflow-y: auto;
 }
 
 details {
-  margin-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
 }
 
 summary {
   cursor: pointer;
-  font-size: 0.875rem;
+  padding: 0.375rem 1rem;
+  font-size: 0.75rem;
   color: var(--text-color);
 }
 
 details pre {
   height: 8rem;
   overflow-y: auto;
-  margin-top: 0.25rem;
 }
 
 samp {
   display: block;
   padding: 1em;
-  background: var(--code-bg);
 }
 
 #discussion {
