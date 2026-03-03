@@ -99,15 +99,7 @@ class SiteBuilder:
         ]
 
     def build_index(self) -> None:
-        index_content = self.index_template.render(
-            comparisons=[  # TODO: can i just pass self.comparisons?
-                {
-                    "title": comparison.title,
-                    "filename": comparison.output_filename,
-                }
-                for comparison in self.comparisons
-            ]
-        )
+        index_content = self.index_template.render(comparisons=self.comparisons)
         (self.output_directory / "index.html").write_text(index_content)
 
     def build_comparisons(self) -> None:
