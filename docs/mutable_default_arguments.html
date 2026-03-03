@@ -8,20 +8,20 @@
   </head>
 
   <body>
-  <h1>mutable default arguments</h1>
+    <h1>mutable default arguments</h1>
 
-  <div id="tab-buttons">
-  
-    <button>node</button>
-  
-    <button>python</button>
-  
-  </div>
+    <div id="tab-buttons">
+    
+      <button>node</button>
+    
+      <button>python</button>
+    
+    </div>
 
-  <div id="snippet-container">
-  
-  <div>
-    <pre><code class="lang-node">function foo(x = []) {
+    <div id="snippet-container">
+      
+      <div>
+        <pre><code class="lang-node">function foo(x = []) {
   x.push(1);
   console.log(x);
 }
@@ -29,42 +29,45 @@
 foo()
 foo()
 </code></pre>
-  </div>
-  
-  <div>
-    <pre><code class="lang-python">def foo(x=[]):
+      </div>
+      
+      <div>
+        <pre><code class="lang-python">def foo(x=[]):
     x.append(1)
     print(x)
 
 foo()
 foo()
 </code></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <button id="toggle-output-button">toggle output</button>
+    <button id="toggle-output-button">toggle output</button>
 
-  <div id="output-container">
-  
-  <div>
-    <pre><samp>[ 1 ]
+    <div id="output-container">
+      
+      <div>
+        <pre><samp>[ 1 ]
 [ 1 ]
 </samp></pre>
-  </div>
-  
-  <div>
-    <pre><samp>[1]
+      </div>
+      
+      <div>
+        <pre><samp>[1]
 [1, 1]
 </samp></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <div id="discussion">
-  evaluated once, at definition time evaluated per call
+    <div id="discussion">
+      evaluated once, at definition time evaluated per call
 
-  </div>
-<script src="comparison.js"></script>
+    </div>
+
+    <link rel="stylesheet" href="hljs-theme.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="comparison.js"></script>
   </body>
 </html>

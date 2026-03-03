@@ -8,52 +8,55 @@
   </head>
 
   <body>
-  <h1>split with no separator</h1>
+    <h1>split with no separator</h1>
 
-  <div id="tab-buttons">
-  
-    <button>node</button>
-  
-    <button>python</button>
-  
-  </div>
+    <div id="tab-buttons">
+    
+      <button>node</button>
+    
+      <button>python</button>
+    
+    </div>
 
-  <div id="snippet-container">
-  
-  <div>
-    <pre><code class="lang-node">const s = "rayo mcgee yablo"
+    <div id="snippet-container">
+      
+      <div>
+        <pre><code class="lang-node">const s = "rayo mcgee yablo"
 console.log(s.split())
 </code></pre>
-  </div>
-  
-  <div>
-    <pre><code class="lang-python">s = "rayo mcgee yablo"
+      </div>
+      
+      <div>
+        <pre><code class="lang-python">s = "rayo mcgee yablo"
 print(s.split())
 </code></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <button id="toggle-output-button">toggle output</button>
+    <button id="toggle-output-button">toggle output</button>
 
-  <div id="output-container">
-  
-  <div>
-    <pre><samp>[ 'rayo mcgee yablo' ]
+    <div id="output-container">
+      
+      <div>
+        <pre><samp>[ 'rayo mcgee yablo' ]
 </samp></pre>
-  </div>
-  
-  <div>
-    <pre><samp>['rayo', 'mcgee', 'yablo']
+      </div>
+      
+      <div>
+        <pre><samp>['rayo', 'mcgee', 'yablo']
 </samp></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <div id="discussion">
-  Surely python is the sensible one here.
+    <div id="discussion">
+      Surely python is the sensible one here.
 
-  </div>
-<script src="comparison.js"></script>
+    </div>
+
+    <link rel="stylesheet" href="hljs-theme.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="comparison.js"></script>
   </body>
 </html>

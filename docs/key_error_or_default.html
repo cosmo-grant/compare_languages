@@ -8,28 +8,28 @@
   </head>
 
   <body>
-  <h1>key error or default</h1>
+    <h1>key error or default</h1>
 
-  <div id="tab-buttons">
-  
-    <button>ruby</button>
-  
-    <button>go</button>
-  
-    <button>python</button>
-  
-  </div>
+    <div id="tab-buttons">
+    
+      <button>ruby</button>
+    
+      <button>go</button>
+    
+      <button>python</button>
+    
+    </div>
 
-  <div id="snippet-container">
-  
-  <div>
-    <pre><code class="lang-ruby">h = {"foo" => 0}
+    <div id="snippet-container">
+      
+      <div>
+        <pre><code class="lang-ruby">h = {"foo" => 0}
 puts h["bar"]
 </code></pre>
-  </div>
-  
-  <div>
-    <pre><code class="lang-golang">package main
+      </div>
+      
+      <div>
+        <pre><code class="lang-golang">package main
 
 import "fmt"
 
@@ -38,46 +38,49 @@ func main() {
 	fmt.Println(m["bar"])
 }
 </code></pre>
-  </div>
-  
-  <div>
-    <pre><code class="lang-python">d = {"foo": 0}
+      </div>
+      
+      <div>
+        <pre><code class="lang-python">d = {"foo": 0}
 print(d["bar"])
 </code></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <button id="toggle-output-button">toggle output</button>
+    <button id="toggle-output-button">toggle output</button>
 
-  <div id="output-container">
-  
-  <div>
-    <pre><samp>
+    <div id="output-container">
+      
+      <div>
+        <pre><samp>
 </samp></pre>
-  </div>
-  
-  <div>
-    <pre><samp>0
+      </div>
+      
+      <div>
+        <pre><samp>0
 </samp></pre>
-  </div>
-  
-  <div>
-    <pre><samp>KeyError: 'bar'
+      </div>
+      
+      <div>
+        <pre><samp>KeyError: 'bar'
 </samp></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <div id="discussion">
-  Key lookup with the typical `[]` syntax is fussy in Python but relaxed in Ruby.
+    <div id="discussion">
+      Key lookup with the typical `[]` syntax is fussy in Python but relaxed in Ruby.
 Defining errors out of existence. Except you may have to distinguish `nil`
 because no such key or `nil` because value is `nil` :( Go fixes this with the
 comma ok. It's interesting that the `collections.Counter` returns 0 for missing
 keys. ```python from collections import Counter string = "to be or not to be" c
 = Counter(string.split()) print(c["question"]) ```
 
-  </div>
-<script src="comparison.js"></script>
+    </div>
+
+    <link rel="stylesheet" href="hljs-theme.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="comparison.js"></script>
   </body>
 </html>

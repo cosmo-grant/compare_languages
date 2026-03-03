@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const outputContainer = document.getElementById("output-container");
   const outputs = [...outputContainer.children];
 
+  // highlight all pre code blocks
+  hljs.highlightAll();
+
   // manage output visibility
   const toggleOutputButton = document.getElementById("toggle-output-button");
   toggleOutputButton.addEventListener("click", () =>

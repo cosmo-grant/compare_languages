@@ -8,53 +8,56 @@
   </head>
 
   <body>
-  <h1>type coercion and overloading</h1>
+    <h1>type coercion and overloading</h1>
 
-  <div id="tab-buttons">
-  
-    <button>node</button>
-  
-    <button>python</button>
-  
-  </div>
+    <div id="tab-buttons">
+    
+      <button>node</button>
+    
+      <button>python</button>
+    
+    </div>
 
-  <div id="snippet-container">
-  
-  <div>
-    <pre><code class="lang-node">console.log('' == false);
+    <div id="snippet-container">
+      
+      <div>
+        <pre><code class="lang-node">console.log('' == false);
 console.log(0 == false);
 </code></pre>
-  </div>
-  
-  <div>
-    <pre><code class="lang-python">print("" == False)
+      </div>
+      
+      <div>
+        <pre><code class="lang-python">print("" == False)
 print(0 == False)
 </code></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <button id="toggle-output-button">toggle output</button>
+    <button id="toggle-output-button">toggle output</button>
 
-  <div id="output-container">
-  
-  <div>
-    <pre><samp>true
+    <div id="output-container">
+      
+      <div>
+        <pre><samp>true
 true
 </samp></pre>
-  </div>
-  
-  <div>
-    <pre><samp>False
+      </div>
+      
+      <div>
+        <pre><samp>False
 True
 </samp></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <div id="discussion">
-  
-  </div>
-<script src="comparison.js"></script>
+    <div id="discussion">
+      
+    </div>
+
+    <link rel="stylesheet" href="hljs-theme.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="comparison.js"></script>
   </body>
 </html>

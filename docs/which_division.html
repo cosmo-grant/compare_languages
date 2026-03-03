@@ -8,54 +8,54 @@
   </head>
 
   <body>
-  <h1>which division</h1>
+    <h1>which division</h1>
 
-  <div id="tab-buttons">
-  
-    <button>rust</button>
-  
-    <button>python</button>
-  
-  </div>
+    <div id="tab-buttons">
+    
+      <button>rust</button>
+    
+      <button>python</button>
+    
+    </div>
 
-  <div id="snippet-container">
-  
-  <div>
-    <pre><code class="lang-rust">fn main() {
+    <div id="snippet-container">
+      
+      <div>
+        <pre><code class="lang-rust">fn main() {
     println!("{}", 1 / 2);
     println!("{}", 1.0 / 2.0);
 }
 </code></pre>
-  </div>
-  
-  <div>
-    <pre><code class="lang-python">print(1 / 2)
+      </div>
+      
+      <div>
+        <pre><code class="lang-python">print(1 / 2)
 print(1.0 / 2.0)
 </code></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <button id="toggle-output-button">toggle output</button>
+    <button id="toggle-output-button">toggle output</button>
 
-  <div id="output-container">
-  
-  <div>
-    <pre><samp>0
+    <div id="output-container">
+      
+      <div>
+        <pre><samp>0
 0.5
 </samp></pre>
-  </div>
-  
-  <div>
-    <pre><samp>0.5
+      </div>
+      
+      <div>
+        <pre><samp>0.5
 0.5
 </samp></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <div id="discussion">
-  Both snippets feature a division operator spelled `/`. In the Python snippet, in
+    <div id="discussion">
+      Both snippets feature a division operator spelled `/`. In the Python snippet, in
 the first `print` it operates on two integers and the result is a float, and in
 the second `print` it operates on two floats and the result is a float. The `/`
 operator is true division both given integers and given floats. In the Rust
@@ -85,7 +85,10 @@ back to an integer, namely `0`. Ditto for `1.0` and `2.0`, except no truncation
 is needed: you can map a half itself back to `0.5`.)" A mouthful, sure, but
 clearer I think.
 
-  </div>
-<script src="comparison.js"></script>
+    </div>
+
+    <link rel="stylesheet" href="hljs-theme.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="comparison.js"></script>
   </body>
 </html>

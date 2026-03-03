@@ -8,20 +8,20 @@
   </head>
 
   <body>
-  <h1>embedding versus inheritance</h1>
+    <h1>embedding versus inheritance</h1>
 
-  <div id="tab-buttons">
-  
-    <button>go</button>
-  
-    <button>python</button>
-  
-  </div>
+    <div id="tab-buttons">
+    
+      <button>go</button>
+    
+      <button>python</button>
+    
+    </div>
 
-  <div id="snippet-container">
-  
-  <div>
-    <pre><code class="lang-golang">package main
+    <div id="snippet-container">
+      
+      <div>
+        <pre><code class="lang-golang">package main
 
 import "fmt"
 
@@ -42,10 +42,10 @@ func main() {
 	fmt.Println(o.F())
 }
 </code></pre>
-  </div>
-  
-  <div>
-    <pre><code class="lang-python">class Inner:
+      </div>
+      
+      <div>
+        <pre><code class="lang-python">class Inner:
     def F(self):
         return self.G()
 
@@ -61,29 +61,32 @@ class Outer(Inner):
 o = Outer()
 print(o.F())
 </code></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <button id="toggle-output-button">toggle output</button>
+    <button id="toggle-output-button">toggle output</button>
 
-  <div id="output-container">
-  
-  <div>
-    <pre><samp>inner
+    <div id="output-container">
+      
+      <div>
+        <pre><samp>inner
 </samp></pre>
-  </div>
-  
-  <div>
-    <pre><samp>outer
+      </div>
+      
+      <div>
+        <pre><samp>outer
 </samp></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <div id="discussion">
-  
-  </div>
-<script src="comparison.js"></script>
+    <div id="discussion">
+      
+    </div>
+
+    <link rel="stylesheet" href="hljs-theme.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="comparison.js"></script>
   </body>
 </html>

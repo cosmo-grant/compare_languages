@@ -8,24 +8,24 @@
   </head>
 
   <body>
-  <h1>loop scope</h1>
+    <h1>loop scope</h1>
 
-  <div id="tab-buttons">
-  
-    <button>node</button>
-  
-    <button>go1-22</button>
-  
-    <button>go1-21</button>
-  
-    <button>python</button>
-  
-  </div>
+    <div id="tab-buttons">
+    
+      <button>node</button>
+    
+      <button>go1-22</button>
+    
+      <button>go1-21</button>
+    
+      <button>python</button>
+    
+    </div>
 
-  <div id="snippet-container">
-  
-  <div>
-    <pre><code class="lang-node">const arr = [];
+    <div id="snippet-container">
+      
+      <div>
+        <pre><code class="lang-node">const arr = [];
 
 let i;
 
@@ -37,10 +37,10 @@ arr[0]();
 arr[1]();
 arr[2]();
 </code></pre>
-  </div>
-  
-  <div>
-    <pre><code class="lang-golang">package main
+      </div>
+      
+      <div>
+        <pre><code class="lang-golang">package main
 
 import "fmt"
 
@@ -54,10 +54,10 @@ func main() {
 	fmt.Println(s[2]())
 }
 </code></pre>
-  </div>
-  
-  <div>
-    <pre><code class="lang-golang">package main
+      </div>
+      
+      <div>
+        <pre><code class="lang-golang">package main
 
 import "fmt"
 
@@ -71,10 +71,10 @@ func main() {
 	fmt.Println(s[2]())
 }
 </code></pre>
-  </div>
-  
-  <div>
-    <pre><code class="lang-python">arr = []
+      </div>
+      
+      <div>
+        <pre><code class="lang-python">arr = []
 
 for i in range(3):
     arr.append(lambda : i)
@@ -83,47 +83,50 @@ print(arr[0]())
 print(arr[1]())
 print(arr[2]())
 </code></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <button id="toggle-output-button">toggle output</button>
+    <button id="toggle-output-button">toggle output</button>
 
-  <div id="output-container">
-  
-  <div>
-    <pre><samp>3
+    <div id="output-container">
+      
+      <div>
+        <pre><samp>3
 3
 3
 </samp></pre>
-  </div>
-  
-  <div>
-    <pre><samp>0
+      </div>
+      
+      <div>
+        <pre><samp>0
 1
 2
 </samp></pre>
-  </div>
-  
-  <div>
-    <pre><samp>3
+      </div>
+      
+      <div>
+        <pre><samp>3
 3
 3
 </samp></pre>
-  </div>
-  
-  <div>
-    <pre><samp>2
+      </div>
+      
+      <div>
+        <pre><samp>2
 2
 2
 </samp></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <div id="discussion">
-  
-  </div>
-<script src="comparison.js"></script>
+    <div id="discussion">
+      
+    </div>
+
+    <link rel="stylesheet" href="hljs-theme.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="comparison.js"></script>
   </body>
 </html>

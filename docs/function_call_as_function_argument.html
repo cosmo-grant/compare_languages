@@ -8,20 +8,20 @@
   </head>
 
   <body>
-  <h1>function call as function argument</h1>
+    <h1>function call as function argument</h1>
 
-  <div id="tab-buttons">
-  
-    <button>node</button>
-  
-    <button>python</button>
-  
-  </div>
+    <div id="tab-buttons">
+    
+      <button>node</button>
+    
+      <button>python</button>
+    
+    </div>
 
-  <div id="snippet-container">
-  
-  <div>
-    <pre><code class="lang-node">function foo() {
+    <div id="snippet-container">
+      
+      <div>
+        <pre><code class="lang-node">function foo() {
   console.log("here")
   return 0
 }
@@ -35,10 +35,10 @@ bar(1)
 bar()
 
 </code></pre>
-  </div>
-  
-  <div>
-    <pre><code class="lang-python">def foo():
+      </div>
+      
+      <div>
+        <pre><code class="lang-python">def foo():
     print("here")
     return 0
 
@@ -50,37 +50,40 @@ bar(1)
 bar()
 
 </code></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <button id="toggle-output-button">toggle output</button>
+    <button id="toggle-output-button">toggle output</button>
 
-  <div id="output-container">
-  
-  <div>
-    <pre><samp>here
+    <div id="output-container">
+      
+      <div>
+        <pre><samp>here
 0
 1
 here
 0
 </samp></pre>
-  </div>
-  
-  <div>
-    <pre><samp>here
+      </div>
+      
+      <div>
+        <pre><samp>here
 0
 1
 0
 </samp></pre>
-  </div>
-  
-  </div>
+      </div>
+      
+    </div>
 
-  <div id="discussion">
-  blah blah blah
+    <div id="discussion">
+      blah blah blah
 
-  </div>
-<script src="comparison.js"></script>
+    </div>
+
+    <link rel="stylesheet" href="hljs-theme.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="comparison.js"></script>
   </body>
 </html>
