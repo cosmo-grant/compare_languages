@@ -29,6 +29,11 @@ body {
   margin: 0 auto;
 }
 
+nav {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
 h1 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
@@ -46,6 +51,72 @@ ul {
 
 li {
   padding: 0.25rem 0;
+}
+
+#tab-buttons {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+#tab-buttons button {
+  font: inherit;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  background: var(--button-bg);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+#tab-buttons button.active {
+  background: var(--button-active-bg);
+  font-weight: 600;
+}
+
+pre {
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  overflow-x: auto;
+}
+
+details {
+  margin-top: 0.5rem;
+}
+
+summary {
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--text-color);
+}
+
+details pre {
+  margin-top: 0.25rem;
+}
+
+samp {
+  display: block;
+  padding: 1em;
+  background: var(--code-bg);
+}
+
+#discussion {
+  margin-top: 1.5rem;
+  line-height: 1.6;
+}
+
+:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+  }
 }
 
 @media (prefers-color-scheme: light) {

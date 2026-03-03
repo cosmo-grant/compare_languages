@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   for (let i = 0; i < tabButtons.length; i++) {
     tabButtons[i].addEventListener("click", () => {
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+      tabButtons[i].classList.add("active");
       snippets.forEach((snippet) => (snippet.hidden = true));
       snippets[i].hidden = false;
     });
