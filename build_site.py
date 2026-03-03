@@ -44,9 +44,10 @@ class Comparison:
 class Snippet:
     """A code snippet and its output."""
 
-    EXTENSION_TO_LANGUAGE = {
+    # used to set class="lang-..." for hljs
+    EXTENSION_TO_HLJS_LANGUAGE = {
         ".go": "golang",
-        ".js": "node",
+        ".js": "javascript",
         ".py": "python",
         ".rb": "ruby",
         ".rs": "rust",
@@ -69,7 +70,7 @@ class Snippet:
 
     @property
     def language(self) -> str:
-        return self.EXTENSION_TO_LANGUAGE[self._get_snippet_path().suffix]
+        return self.EXTENSION_TO_HLJS_LANGUAGE[self._get_snippet_path().suffix]
 
     @property
     def code(self) -> str:
