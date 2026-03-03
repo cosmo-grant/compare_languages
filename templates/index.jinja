@@ -9,15 +9,18 @@
       name="description"
       content="Programming language comparisons via code snippets and short discussions."
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <h1>Comparisons</h1>
+    <main>
+      <h1>Comparisons</h1>
 
-    <ul>
-    {% for comparison in comparisons %}
-      <li><a href="{{ comparison.output_filename }}">{{ comparison.title }}</a></li>
-    {% endfor %}
-    </ul>
+      <ul>
+      {% for comparison in comparisons %}
+        <li><a href="{{ comparison.output_filename }}">{{ comparison.title }}</a></li>
+      {% endfor %}
+      </ul>
+    </main>
   </body>
 </html>

@@ -8,30 +8,33 @@
   </head>
 
   <body>
-    <h1>{{ title }}</h1>
+    <main>
+      <h1>{{ title }}</h1>
 
-    <div id="tab-buttons">
-    {% for snippet in snippets %}
-      <button>{{ snippet.title }}</button>
-    {% endfor %}
-    </div>
-
-    <div id="snippet-container">
+      <div id="tab-buttons">
       {% for snippet in snippets %}
-      <div>
-        <pre><code class="lang-{{ snippet.language }}">{{ snippet.code }}</code></pre>
-        <details>
-          <summary>Output</summary>
-          <pre><samp>{{ snippet.output }}</samp></pre>
-        </details>
-      </div>
+        <button>{{ snippet.title }}</button>
       {% endfor %}
-    </div>
+      </div>
 
-    <div id="discussion">
-      {{ discussion }}
-    </div>
+      <div id="snippet-container">
+        {% for snippet in snippets %}
+        <div>
+          <pre><code class="lang-{{ snippet.language }}">{{ snippet.code }}</code></pre>
+          <details>
+            <summary>Output</summary>
+            <pre><samp>{{ snippet.output }}</samp></pre>
+          </details>
+        </div>
+        {% endfor %}
+      </div>
 
+      <div id="discussion">
+        {{ discussion }}
+      </div>
+    </main>
+
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="hljs-theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="comparison.js"></script>
