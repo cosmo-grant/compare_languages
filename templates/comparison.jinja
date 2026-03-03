@@ -20,16 +20,10 @@
       {% for snippet in snippets %}
       <div>
         <pre><code class="lang-{{ snippet.language }}">{{ snippet.code }}</code></pre>
-      </div>
-      {% endfor %}
-    </div>
-
-    <button id="toggle-output-button">toggle output</button>
-
-    <div id="output-container">
-      {% for snippet in snippets %}
-      <div>
-        <pre><samp>{{ snippet.output }}</samp></pre>
+        <details>
+          <summary>Output</summary>
+          <pre><samp>{{ snippet.output }}</samp></pre>
+        </details>
       </div>
       {% endfor %}
     </div>
