@@ -26,9 +26,7 @@ class Comparison:
 
     @property
     def discussion(self) -> str:
-        with open(self.dir / "discussion.html") as f:
-            content = f.read()
-        return content
+        return (self.dir / "discussion.html").read_text()
 
     @property
     def title(self) -> str:
@@ -81,10 +79,7 @@ class Snippet:
 
     @property
     def output(self) -> str:
-        with open(self.dir / "output.txt") as file:
-            output = file.read()
-
-        return output
+        return (self.dir / "output.txt").read_text()
 
 
 class SiteBuilder:
@@ -113,10 +108,7 @@ class SiteBuilder:
                 for comparison in self.comparisons
             ]
         )
-        with open(
-            self.output_directory / "index.html", mode="w", encoding="utf-8"
-        ) as index_file:
-            index_file.write(index_content)
+        (self.output_directory / "index.html").write_text(index_content)
 
     def build_comparisons(self) -> None:
         for comparison in self.comparisons:
@@ -134,12 +126,7 @@ class SiteBuilder:
                 title=comparison.title,
             )
 
-            with open(
-                self.output_directory / comparison.output_filename,
-                mode="w",
-                encoding="utf-8",
-            ) as output_file:
-                output_file.write(comparison_content)
+            (self.output_directory / comparison.output_filename).write_text(comparison_content)
 
     def build(self) -> None:
         self.build_comparisons()
