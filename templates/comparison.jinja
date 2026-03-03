@@ -3,57 +3,39 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>type coercion and overloading | Compare Languages</title>
+    <title>{{ title }} | Compare Languages</title>
     <meta name="author" content="Cosmo Grant" />
   </head>
 
   <body>
-  <h1>type coercion and overloading</h1>
+  <h1>{{ title }}</h1>
 
   <div id="tab-buttons">
-  
-    <button>node</button>
-  
-    <button>python</button>
-  
+  {% for snippet in snippets %}
+    <button>{{ snippet.title }}</button>
+  {% endfor %}
   </div>
 
   <div id="snippet-container">
-  
+  {% for snippet in snippets %}
   <div>
-    <pre><code class="lang-node">console.log('' == false);
-console.log(0 == false);
-</code></pre>
+    <pre><code class="lang-{{ snippet.language }}">{{ snippet.code }}</code></pre>
   </div>
-  
-  <div>
-    <pre><code class="lang-python">print("" == False)
-print(0 == False)
-</code></pre>
-  </div>
-  
+  {% endfor %}
   </div>
 
   <button id="toggle-output-button">toggle output</button>
 
   <div id="output-container">
-  
+  {% for snippet in snippets %}
   <div>
-    <pre><samp>true
-true
-</samp></pre>
+    <pre><samp>{{ snippet.output }}</samp></pre>
   </div>
-  
-  <div>
-    <pre><samp>False
-True
-</samp></pre>
-  </div>
-  
+  {% endfor %}
   </div>
 
   <div id="discussion">
-  
+  {{ discussion }}
   </div>
 <script src="comparison.js"></script>
   </body>

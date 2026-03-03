@@ -9,7 +9,6 @@
 from jinja2 import Environment, FileSystemLoader
 
 from pathlib import Path
-from subprocess import run
 
 
 class Comparison:
@@ -27,7 +26,7 @@ class Comparison:
 
     @property
     def discussion(self) -> str:
-        with open(self.dir / "discussion.adoc") as f:
+        with open(self.dir / "discussion.html") as f:
             content = f.read()
         return content
 
@@ -90,8 +89,8 @@ class Snippet:
 
 class SiteBuilder:
     env = Environment(loader=FileSystemLoader("templates/"))
-    comparison_template = env.get_template("comparison.adoc.jinja")
-    index_template = env.get_template("index.adoc.jinja")
+    comparison_template = env.get_template("comparison.jinja")
+    index_template = env.get_template("index.jinja")
     comparisons_directory = Path("comparisons")
     # NOTE: When deploying from a branch, github pages only lets you deploy from / or docs/.
     output_directory = Path("docs")
@@ -105,7 +104,7 @@ class SiteBuilder:
         ]
 
     def build_index(self) -> None:
-        raw_content = self.index_template.render(
+        index_content = self.index_template.render(
             comparisons=[  # TODO: can i just pass self.comparisons?
                 {
                     "title": comparison.title,
@@ -114,22 +113,14 @@ class SiteBuilder:
                 for comparison in self.comparisons
             ]
         )
-        subprocess = run(
-            "docker container run -i asciidoctor-tabs",
-            capture_output=True,
-            check=True,
-            input=raw_content,
-            shell=True,
-            text=True,
-        )
         with open(
             self.output_directory / "index.html", mode="w", encoding="utf-8"
-        ) as rendered_index:
-            rendered_index.write(subprocess.stdout)
+        ) as index_file:
+            index_file.write(index_content)
 
     def build_comparisons(self) -> None:
         for comparison in self.comparisons:
-            content = self.comparison_template.render(
+            comparison_content = self.comparison_template.render(
                 snippets=[
                     {
                         "title": snippet.title,
@@ -143,20 +134,12 @@ class SiteBuilder:
                 title=comparison.title,
             )
 
-            subprocess = run(
-                "docker container run -i asciidoctor-tabs",
-                capture_output=True,
-                check=True,
-                input=content,
-                shell=True,
-                text=True,
-            )
             with open(
                 self.output_directory / comparison.output_filename,
                 mode="w",
                 encoding="utf-8",
             ) as output_file:
-                output_file.write(subprocess.stdout)
+                output_file.write(comparison_content)
 
     def build(self) -> None:
         self.build_comparisons()

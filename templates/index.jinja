@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en-UK">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Compare Languages</title>
+    <meta name="author" content="Cosmo Grant" />
+    <meta
+      name="description"
+      content="Programming language comparisons via code snippets and short discussions."
+    />
+  </head>
+
+  <body>
+<h1>Comparisons</h1>
+
+<ul>
+{% for comparison in comparisons %}
+  <li><a href="{{ comparison.filename }}">{{ comparison.title }}</a></li>
+{% endfor %}
+</ul>
+</body>
+</html>
