@@ -81,6 +81,11 @@ pre {
   overflow-x: auto;
 }
 
+#snippet-container > div > pre {
+  height: 24rem;
+  overflow-y: auto;
+}
+
 details {
   margin-top: 0.5rem;
 }
@@ -92,6 +97,8 @@ summary {
 }
 
 details pre {
+  height: 8rem;
+  overflow-y: auto;
   margin-top: 0.25rem;
 }
 
