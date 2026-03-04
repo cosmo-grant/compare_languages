@@ -118,7 +118,7 @@ pre {
 }
 
 .output-section pre.output-hidden {
-  visibility: hidden;
+  display: none;
 }
 
 samp {

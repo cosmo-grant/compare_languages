@@ -12,34 +12,6 @@ function measureMaxCodeHeight(snippets) {
   return maxCode;
 }
 
-function applyHeights(snippets, maxCodeHeight) {
-  const BUFFER = 2;
-
-  // Show all snippets so we can measure total heights.
-  snippets.forEach((s) => (s.hidden = false));
-
-  // Set uniform code-box height; let output boxes size naturally.
-  for (const snippet of snippets) {
-    const codePre = snippet.querySelector(":scope > pre");
-    codePre.style.height = maxCodeHeight + BUFFER + "px";
-  }
-
-  // Pin the container to the tallest snippet so discussion doesn't jump.
-  const container = document.getElementById("snippet-container");
-  let maxHeight = 0;
-  for (const snippet of snippets) {
-    maxHeight = Math.max(maxHeight, snippet.scrollHeight);
-  }
-  container.style.minHeight = maxHeight + "px";
-
-  // Hide all snippets again and mark outputs as hidden.
-  for (const snippet of snippets) {
-    snippet.hidden = true;
-    const outputPre = snippet.querySelector(".output-section pre");
-    outputPre.classList.add("output-hidden");
-  }
-}
-
 function setupOutputToggles(snippets) {
   for (const snippet of snippets) {
     const btn = snippet.querySelector(".output-toggle");
@@ -57,8 +29,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   hljs.highlightAll();
 
+  // Set uniform code-box height across all tabs.
   const maxCodeHeight = measureMaxCodeHeight(snippets);
-  applyHeights(snippets, maxCodeHeight);
+  const BUFFER = 2;
+  for (const snippet of snippets) {
+    snippet.querySelector(":scope > pre").style.height =
+      maxCodeHeight + BUFFER + "px";
+  }
+
+  // Hide outputs initially.
+  for (const snippet of snippets) {
+    snippet.querySelector(".output-section pre").classList.add("output-hidden");
+  }
+
   setupOutputToggles(snippets);
 
   for (let i = 0; i < tabButtons.length; i++) {
