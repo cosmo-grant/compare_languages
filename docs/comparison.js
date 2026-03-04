@@ -6,17 +6,10 @@ function measureMaxHeights(snippets) {
 
   for (const snippet of snippets) {
     const codePre = snippet.querySelector(":scope > pre");
-    if (codePre) {
-      code = Math.max(code, codePre.scrollHeight);
-    }
+    code = Math.max(code, codePre.scrollHeight);
 
-    const details = snippet.querySelector("details");
-    const outputPre = snippet.querySelector("details pre");
-    if (details && outputPre) {
-      details.open = true;
-      output = Math.max(output, outputPre.scrollHeight);
-      details.open = false;
-    }
+    const outputPre = snippet.querySelector(".output-section pre");
+    output = Math.max(output, outputPre.scrollHeight);
   }
 
   snippets.forEach((s) => (s.hidden = true));
@@ -28,10 +21,22 @@ function applyHeights(snippets, heights) {
   const BUFFER = 2;
   for (const snippet of snippets) {
     const codePre = snippet.querySelector(":scope > pre");
-    if (codePre) codePre.style.height = heights.code + BUFFER + "px";
+    codePre.style.height = heights.code + BUFFER + "px";
 
-    const outputPre = snippet.querySelector("details pre");
-    if (outputPre) outputPre.style.height = heights.output + BUFFER + "px";
+    const outputPre = snippet.querySelector(".output-section pre");
+    outputPre.style.height = heights.output + BUFFER + "px";
+    outputPre.classList.add("output-hidden");
+  }
+}
+
+function setupOutputToggles(snippets) {
+  for (const snippet of snippets) {
+    const btn = snippet.querySelector(".output-toggle");
+    const pre = snippet.querySelector(".output-section pre");
+    btn.addEventListener("click", () => {
+      pre.classList.toggle("output-hidden");
+      btn.classList.toggle("open");
+    });
   }
 }
 
@@ -43,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const heights = measureMaxHeights(snippets);
   applyHeights(snippets, heights);
+  setupOutputToggles(snippets);
 
   for (let i = 0; i < tabButtons.length; i++) {
     tabButtons[i].addEventListener("click", () => {

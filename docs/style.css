@@ -85,20 +85,38 @@ pre {
   overflow-y: auto;
 }
 
-details {
+.output-section {
   margin-top: 0.5rem;
 }
 
-summary {
-  cursor: pointer;
+.output-toggle {
+  font: inherit;
   font-size: 0.875rem;
   color: var(--text-color);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
-details pre {
+.output-toggle .arrow {
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+}
+
+.output-toggle.open .arrow {
+  transform: rotate(90deg);
+}
+
+.output-section pre {
   overflow-y: auto;
   margin-top: 0.25rem;
   background: var(--code-bg);
+}
+
+.output-section pre.output-hidden {
+  visibility: hidden;
 }
 
 samp {
@@ -131,7 +149,7 @@ samp {
     --bg-color: #ffffff;
     --link-color: #0366d6;
     --border-color: #e1e4e8;
-    --code-bg: #f6f8fa;
+    --code-bg: #fff;
     --button-bg: #f6f8fa;
     --button-active-bg: #e1e4e8;
   }
@@ -143,7 +161,7 @@ samp {
     --bg-color: #0d1117;
     --link-color: #79bbff;
     --border-color: #30363d;
-    --code-bg: #161b22;
+    --code-bg: #0d1117;
     --button-bg: #21262d;
     --button-active-bg: #30363d;
   }
