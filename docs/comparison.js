@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Set uniform code-box height across all tabs.
   const maxCodeHeight = measureMaxCodeHeight(snippets);
-  const BUFFER = 2;
+  const BUFFER = 2; // account for 1px top + 1px bottom border
   for (const snippet of snippets) {
     snippet.querySelector(":scope > pre").style.height =
       maxCodeHeight + BUFFER + "px";
