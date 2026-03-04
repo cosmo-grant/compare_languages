@@ -36,11 +36,10 @@ h1 {
   line-height: 1.2;
 }
 
-h1 a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 1em;
+.back-link {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
   text-decoration: none;
 }
 

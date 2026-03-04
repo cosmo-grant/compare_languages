@@ -9,7 +9,8 @@
 
   <body>
     <main>
-      <h1><a href="index.html" aria-label="Back"><svg width="0.6em" height="0.6em" viewBox="0 0 16 16" fill="currentColor"><path d="M16 7H3.8l5.6-5.6L8 0 0 8l8 8 1.4-1.4L3.8 9H16z"/></svg></a> {{ title }}</h1>
+      <a href="index.html" class="back-link" aria-label="Back to index">&larr;</a>
+      <h1>{{ title }}</h1>
 
       <div id="tab-buttons">
       {% for snippet in snippets %}
