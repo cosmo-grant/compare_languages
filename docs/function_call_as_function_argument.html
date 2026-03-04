@@ -27,12 +27,9 @@
         <div>
           <pre><code class="lang-javascript">function foo() {
   console.log("here")
-  return 0
 }
 
-function bar(x = foo()) {
-  console.log(x)
-}
+function bar(x = foo()) { }
 
 bar()
 bar(1)
@@ -42,10 +39,7 @@ bar()
           <div class="output-section">
             <button class="output-toggle">output</button>
             <pre><samp>here
-0
-1
 here
-0
 </samp></pre>
           </div>
         </div>
@@ -53,22 +47,17 @@ here
         <div>
           <pre><code class="lang-python">def foo():
     print("here")
-    return 0
 
 def bar(x=foo()):
-    print(x)
+    pass
 
 bar()
 bar(1)
 bar()
-
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
             <pre><samp>here
-0
-1
-0
 </samp></pre>
           </div>
         </div>
@@ -76,7 +65,30 @@ bar()
       </div>
 
       <div id="discussion">
-        blah blah blah
+        <p>When is <code>foo()</code> called?</p>
+
+<p>
+In Node, it's called when <code>bar()</code> is called without passing a value for <code>x</code>.
+Defaults are evaluated per <em>call</em>, when necessary.
+</p>
+
+<p>
+In Python, it's called once, at definition time.
+(Its return value, <code>None</code>, is stored in <code>foo.__defaults__</code>.)
+Defaults are evaluated per <em>function</em>, no matter what.
+</p>
+
+<p>
+Mutable defaults are a bad idea in Python.
+(Calls share the default, so see each other's mutations.)
+Setting defaults via function calls is a bad idea too.
+(Calls share the default, so the default-setting function only runs once.)
+Two aspects of the same language feature.
+</p>
+
+<p>In a code review once I saw something like</p>
+<pre><code class="lang-python">def create_customer(id=uuid4()): ... </code></pre>
+<p>dooming us never to land a second sale.</p>
 
       </div>
     </main>

@@ -1,11 +1,8 @@
 function foo() {
   console.log("here")
-  return 0
 }
 
-function bar(x = foo()) {
-  console.log(x)
-}
+function bar(x = foo()) { }
 
 bar()
 bar(1)
