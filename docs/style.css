@@ -102,14 +102,15 @@ pre {
   cursor: pointer;
 }
 
-.output-toggle .arrow {
+.output-toggle::before {
+  content: "▸";
   display: inline-block;
   width: 1em;
   text-align: center;
 }
 
-.output-toggle.open .arrow {
-  transform: rotate(90deg);
+.output-toggle.open::before {
+  content: "▾";
 }
 
 .output-section pre {
