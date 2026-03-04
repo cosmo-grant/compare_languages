@@ -5,23 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>function call as function argument | Compare Languages</title>
     <meta name="author" content="Cosmo Grant" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="hljs-theme.css" />
   </head>
 
   <body>
-    <h1>function call as function argument</h1>
+    <main>
+      <a href="index.html" class="back-link" aria-label="Back to index">&larr;</a>
+      <h1>function call as function argument</h1>
 
-    <div id="tab-buttons">
-    
-      <button>node</button>
-    
-      <button>python</button>
-    
-    </div>
-
-    <div id="snippet-container">
+      <div id="tab-buttons">
       
-      <div>
-        <pre><code class="lang-javascript">function foo() {
+        <button>node</button>
+      
+        <button>python</button>
+      
+      </div>
+
+      <div id="snippet-container">
+        
+        <div>
+          <pre><code class="lang-javascript">function foo() {
   console.log("here")
   return 0
 }
@@ -35,10 +39,19 @@ bar(1)
 bar()
 
 </code></pre>
-      </div>
-      
-      <div>
-        <pre><code class="lang-python">def foo():
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>here
+0
+1
+here
+0
+</samp></pre>
+          </div>
+        </div>
+        
+        <div>
+          <pre><code class="lang-python">def foo():
     print("here")
     return 0
 
@@ -50,39 +63,24 @@ bar(1)
 bar()
 
 </code></pre>
-      </div>
-      
-    </div>
-
-    <button id="toggle-output-button">toggle output</button>
-
-    <div id="output-container">
-      
-      <div>
-        <pre><samp>here
-0
-1
-here
-0
-</samp></pre>
-      </div>
-      
-      <div>
-        <pre><samp>here
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>here
 0
 1
 0
 </samp></pre>
+          </div>
+        </div>
+        
       </div>
-      
-    </div>
 
-    <div id="discussion">
-      blah blah blah
+      <div id="discussion">
+        blah blah blah
 
-    </div>
+      </div>
+    </main>
 
-    <link rel="stylesheet" href="hljs-theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="comparison.js"></script>
   </body>

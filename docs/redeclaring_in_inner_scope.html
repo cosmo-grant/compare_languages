@@ -5,25 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>redeclaring in inner scope | Compare Languages</title>
     <meta name="author" content="Cosmo Grant" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="hljs-theme.css" />
   </head>
 
   <body>
-    <h1>redeclaring in inner scope</h1>
+    <main>
+      <a href="index.html" class="back-link" aria-label="Back to index">&larr;</a>
+      <h1>redeclaring in inner scope</h1>
 
-    <div id="tab-buttons">
-    
-      <button>node</button>
-    
-      <button>go</button>
-    
-      <button>python</button>
-    
-    </div>
-
-    <div id="snippet-container">
+      <div id="tab-buttons">
       
-      <div>
-        <pre><code class="lang-javascript">let x = 1
+        <button>node</button>
+      
+        <button>go</button>
+      
+        <button>python</button>
+      
+      </div>
+
+      <div id="snippet-container">
+        
+        <div>
+          <pre><code class="lang-javascript">let x = 1
 
 function main() {
   console.log(x);
@@ -33,10 +37,15 @@ function main() {
 
 main()
 </code></pre>
-      </div>
-      
-      <div>
-        <pre><code class="lang-golang">package main
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>ReferenceError: Cannot access 'x' before initialization
+</samp></pre>
+          </div>
+        </div>
+        
+        <div>
+          <pre><code class="lang-golang">package main
 
 import "fmt"
 
@@ -48,10 +57,16 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
-      </div>
-      
-      <div>
-        <pre><code class="lang-python">x = 1
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>1
+2
+</samp></pre>
+          </div>
+        </div>
+        
+        <div>
+          <pre><code class="lang-python">x = 1
 
 def main():
     print(x)
@@ -60,37 +75,20 @@ def main():
 
 main()
 </code></pre>
-      </div>
-      
-    </div>
-
-    <button id="toggle-output-button">toggle output</button>
-
-    <div id="output-container">
-      
-      <div>
-        <pre><samp>ReferenceError: Cannot access 'x' before initialization
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>UnboundLocalError: cannot access local variable 'x' where it is not associated with a value
 </samp></pre>
+          </div>
+        </div>
+        
       </div>
-      
-      <div>
-        <pre><samp>1
-2
-</samp></pre>
-      </div>
-      
-      <div>
-        <pre><samp>UnboundLocalError: cannot access local variable 'x' where it is not associated with a value
-</samp></pre>
-      </div>
-      
-    </div>
 
-    <div id="discussion">
-      
-    </div>
+      <div id="discussion">
+        
+      </div>
+    </main>
 
-    <link rel="stylesheet" href="hljs-theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="comparison.js"></script>
   </body>

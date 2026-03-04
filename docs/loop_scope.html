@@ -5,27 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>loop scope | Compare Languages</title>
     <meta name="author" content="Cosmo Grant" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="hljs-theme.css" />
   </head>
 
   <body>
-    <h1>loop scope</h1>
+    <main>
+      <a href="index.html" class="back-link" aria-label="Back to index">&larr;</a>
+      <h1>loop scope</h1>
 
-    <div id="tab-buttons">
-    
-      <button>node</button>
-    
-      <button>go1-22</button>
-    
-      <button>go1-21</button>
-    
-      <button>python</button>
-    
-    </div>
-
-    <div id="snippet-container">
+      <div id="tab-buttons">
       
-      <div>
-        <pre><code class="lang-javascript">const arr = [];
+        <button>node</button>
+      
+        <button>go1-22</button>
+      
+        <button>go1-21</button>
+      
+        <button>python</button>
+      
+      </div>
+
+      <div id="snippet-container">
+        
+        <div>
+          <pre><code class="lang-javascript">const arr = [];
 
 let i;
 
@@ -37,10 +41,17 @@ arr[0]();
 arr[1]();
 arr[2]();
 </code></pre>
-      </div>
-      
-      <div>
-        <pre><code class="lang-golang">package main
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>3
+3
+3
+</samp></pre>
+          </div>
+        </div>
+        
+        <div>
+          <pre><code class="lang-golang">package main
 
 import "fmt"
 
@@ -54,10 +65,17 @@ func main() {
 	fmt.Println(s[2]())
 }
 </code></pre>
-      </div>
-      
-      <div>
-        <pre><code class="lang-golang">package main
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>0
+1
+2
+</samp></pre>
+          </div>
+        </div>
+        
+        <div>
+          <pre><code class="lang-golang">package main
 
 import "fmt"
 
@@ -71,10 +89,17 @@ func main() {
 	fmt.Println(s[2]())
 }
 </code></pre>
-      </div>
-      
-      <div>
-        <pre><code class="lang-python">arr = []
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>3
+3
+3
+</samp></pre>
+          </div>
+        </div>
+        
+        <div>
+          <pre><code class="lang-python">arr = []
 
 for i in range(3):
     arr.append(lambda : i)
@@ -83,49 +108,22 @@ print(arr[0]())
 print(arr[1]())
 print(arr[2]())
 </code></pre>
-      </div>
-      
-    </div>
-
-    <button id="toggle-output-button">toggle output</button>
-
-    <div id="output-container">
-      
-      <div>
-        <pre><samp>3
-3
-3
-</samp></pre>
-      </div>
-      
-      <div>
-        <pre><samp>0
-1
-2
-</samp></pre>
-      </div>
-      
-      <div>
-        <pre><samp>3
-3
-3
-</samp></pre>
-      </div>
-      
-      <div>
-        <pre><samp>2
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>2
 2
 2
 </samp></pre>
+          </div>
+        </div>
+        
       </div>
-      
-    </div>
 
-    <div id="discussion">
-      
-    </div>
+      <div id="discussion">
+        
+      </div>
+    </main>
 
-    <link rel="stylesheet" href="hljs-theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="comparison.js"></script>
   </body>

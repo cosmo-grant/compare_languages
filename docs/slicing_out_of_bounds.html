@@ -5,31 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>slicing out of bounds | Compare Languages</title>
     <meta name="author" content="Cosmo Grant" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="hljs-theme.css" />
   </head>
 
   <body>
-    <h1>slicing out of bounds</h1>
+    <main>
+      <a href="index.html" class="back-link" aria-label="Back to index">&larr;</a>
+      <h1>slicing out of bounds</h1>
 
-    <div id="tab-buttons">
-    
-      <button>node</button>
-    
-      <button>go</button>
-    
-      <button>python</button>
-    
-    </div>
-
-    <div id="snippet-container">
+      <div id="tab-buttons">
       
-      <div>
-        <pre><code class="lang-javascript">const arr = [0, 1, 2, 3, 4]
+        <button>node</button>
+      
+        <button>go</button>
+      
+        <button>python</button>
+      
+      </div>
+
+      <div id="snippet-container">
+        
+        <div>
+          <pre><code class="lang-javascript">const arr = [0, 1, 2, 3, 4]
 console.log(arr.slice(2, 50))
 </code></pre>
-      </div>
-      
-      <div>
-        <pre><code class="lang-golang">package main
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>[ 2, 3, 4 ]
+</samp></pre>
+          </div>
+        </div>
+        
+        <div>
+          <pre><code class="lang-golang">package main
 
 import "fmt"
 
@@ -38,44 +47,33 @@ func main() {
   fmt.Println(s[2:50])
 }
 </code></pre>
-      </div>
-      
-      <div>
-        <pre><code class="lang-python">lst = [0, 1, 2, 3, 4]
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>panic: runtime error: slice bounds out of range [:50] with capacity 5
+</samp></pre>
+          </div>
+        </div>
+        
+        <div>
+          <pre><code class="lang-python">lst = [0, 1, 2, 3, 4]
 print(lst[2:50])
 </code></pre>
-      </div>
-      
-    </div>
-
-    <button id="toggle-output-button">toggle output</button>
-
-    <div id="output-container">
-      
-      <div>
-        <pre><samp>[ 2, 3, 4 ]
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>[2, 3, 4]
 </samp></pre>
+          </div>
+        </div>
+        
       </div>
-      
-      <div>
-        <pre><samp>panic: runtime error: slice bounds out of range [:50] with capacity 5
-</samp></pre>
-      </div>
-      
-      <div>
-        <pre><samp>[2, 3, 4]
-</samp></pre>
-      </div>
-      
-    </div>
 
-    <div id="discussion">
-      Python returns any items with indices in the given range. This is an example of
+      <div id="discussion">
+        Python returns any items with indices in the given range. This is an example of
 what John Ousterhout calls "defining errors out of existence". Go is stricter.
 
-    </div>
+      </div>
+    </main>
 
-    <link rel="stylesheet" href="hljs-theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="comparison.js"></script>
   </body>

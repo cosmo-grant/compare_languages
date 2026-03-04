@@ -5,23 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>embedding versus inheritance | Compare Languages</title>
     <meta name="author" content="Cosmo Grant" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="hljs-theme.css" />
   </head>
 
   <body>
-    <h1>embedding versus inheritance</h1>
+    <main>
+      <a href="index.html" class="back-link" aria-label="Back to index">&larr;</a>
+      <h1>embedding versus inheritance</h1>
 
-    <div id="tab-buttons">
-    
-      <button>go</button>
-    
-      <button>python</button>
-    
-    </div>
-
-    <div id="snippet-container">
+      <div id="tab-buttons">
       
-      <div>
-        <pre><code class="lang-golang">package main
+        <button>go</button>
+      
+        <button>python</button>
+      
+      </div>
+
+      <div id="snippet-container">
+        
+        <div>
+          <pre><code class="lang-golang">package main
 
 import "fmt"
 
@@ -42,10 +46,15 @@ func main() {
 	fmt.Println(o.F())
 }
 </code></pre>
-      </div>
-      
-      <div>
-        <pre><code class="lang-python">class Inner:
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>inner
+</samp></pre>
+          </div>
+        </div>
+        
+        <div>
+          <pre><code class="lang-python">class Inner:
     def F(self):
         return self.G()
 
@@ -61,31 +70,20 @@ class Outer(Inner):
 o = Outer()
 print(o.F())
 </code></pre>
-      </div>
-      
-    </div>
-
-    <button id="toggle-output-button">toggle output</button>
-
-    <div id="output-container">
-      
-      <div>
-        <pre><samp>inner
+          <div class="output-section">
+            <button class="output-toggle">output</button>
+            <pre><samp>outer
 </samp></pre>
+          </div>
+        </div>
+        
       </div>
-      
-      <div>
-        <pre><samp>outer
-</samp></pre>
+
+      <div id="discussion">
+        
       </div>
-      
-    </div>
+    </main>
 
-    <div id="discussion">
-      
-    </div>
-
-    <link rel="stylesheet" href="hljs-theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="comparison.js"></script>
   </body>
