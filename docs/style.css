@@ -113,7 +113,6 @@ pre {
 }
 
 .output-section pre {
-  overflow-y: auto;
   margin-top: 0.25rem;
   background: var(--code-bg);
 }

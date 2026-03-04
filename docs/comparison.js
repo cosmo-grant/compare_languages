@@ -1,30 +1,41 @@
-function measureMaxHeights(snippets) {
+function measureMaxCodeHeight(snippets) {
   snippets.forEach((s) => (s.hidden = false));
 
-  let code = 0;
-  let output = 0;
-
+  let maxCode = 0;
   for (const snippet of snippets) {
     const codePre = snippet.querySelector(":scope > pre");
-    code = Math.max(code, codePre.scrollHeight);
-
-    const outputPre = snippet.querySelector(".output-section pre");
-    output = Math.max(output, outputPre.scrollHeight);
+    maxCode = Math.max(maxCode, codePre.scrollHeight);
   }
 
   snippets.forEach((s) => (s.hidden = true));
 
-  return { code, output };
+  return maxCode;
 }
 
-function applyHeights(snippets, heights) {
+function applyHeights(snippets, maxCodeHeight) {
   const BUFFER = 2;
+
+  // Show all snippets so we can measure total heights.
+  snippets.forEach((s) => (s.hidden = false));
+
+  // Set uniform code-box height; let output boxes size naturally.
   for (const snippet of snippets) {
     const codePre = snippet.querySelector(":scope > pre");
-    codePre.style.height = heights.code + BUFFER + "px";
+    codePre.style.height = maxCodeHeight + BUFFER + "px";
+  }
 
+  // Pin the container to the tallest snippet so discussion doesn't jump.
+  const container = document.getElementById("snippet-container");
+  let maxHeight = 0;
+  for (const snippet of snippets) {
+    maxHeight = Math.max(maxHeight, snippet.scrollHeight);
+  }
+  container.style.minHeight = maxHeight + "px";
+
+  // Hide all snippets again and mark outputs as hidden.
+  for (const snippet of snippets) {
+    snippet.hidden = true;
     const outputPre = snippet.querySelector(".output-section pre");
-    outputPre.style.height = heights.output + BUFFER + "px";
     outputPre.classList.add("output-hidden");
   }
 }
@@ -46,8 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   hljs.highlightAll();
 
-  const heights = measureMaxHeights(snippets);
-  applyHeights(snippets, heights);
+  const maxCodeHeight = measureMaxCodeHeight(snippets);
+  applyHeights(snippets, maxCodeHeight);
   setupOutputToggles(snippets);
 
   for (let i = 0; i < tabButtons.length; i++) {
