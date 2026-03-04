@@ -82,7 +82,6 @@ pre {
 }
 
 #snippet-container > div > pre {
-  height: 24rem;
   overflow-y: auto;
 }
 
@@ -97,15 +96,14 @@ summary {
 }
 
 details pre {
-  height: 8rem;
   overflow-y: auto;
   margin-top: 0.25rem;
+  background: var(--code-bg);
 }
 
 samp {
   display: block;
   padding: 1em;
-  background: var(--code-bg);
 }
 
 #discussion {
