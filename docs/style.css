@@ -145,16 +145,14 @@ samp {
   }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --text-color: #24292e;
-    --bg-color: #ffffff;
-    --link-color: #0366d6;
-    --border-color: #e1e4e8;
-    --code-bg: #fff;
-    --button-bg: #f6f8fa;
-    --button-active-bg: #e1e4e8;
-  }
+:root {
+  --text-color: #24292e;
+  --bg-color: #ffffff;
+  --link-color: #0366d6;
+  --border-color: #e1e4e8;
+  --code-bg: #fff;
+  --button-bg: #f6f8fa;
+  --button-active-bg: #e1e4e8;
 }
 
 @media (prefers-color-scheme: dark) {
