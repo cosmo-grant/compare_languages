@@ -47,12 +47,12 @@ a {
   color: var(--link-color);
 }
 
-ul {
+.comparison-list {
   list-style: none;
   padding-left: 0;
 }
 
-li {
+.comparison-list li {
   padding: 0.25rem 0;
 }
 
