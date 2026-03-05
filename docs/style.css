@@ -135,6 +135,17 @@ samp {
   margin-top: 1em;
 }
 
+#discussion blockquote {
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid var(--border-color);
+}
+
+#discussion blockquote footer {
+  margin-top: 0.5em;
+  font-size: 0.875rem;
+}
+
 #discussion pre {
   margin: 1em 0;
 }
