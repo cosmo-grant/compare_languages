@@ -24,7 +24,7 @@
 
       <div id="snippet-container">
         
-        <div>
+        <div hidden>
           <pre><code class="lang-javascript">function foo(x = []) {
   x.push(1);
   console.log(x);
@@ -35,13 +35,13 @@ foo()
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre><samp>[ 1 ]
+            <pre class="output-hidden"><samp>[ 1 ]
 [ 1 ]
 </samp></pre>
           </div>
         </div>
         
-        <div>
+        <div hidden>
           <pre><code class="lang-python">def foo(x=[]):
     x.append(1)
     print(x)
@@ -51,7 +51,7 @@ foo()
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre><samp>[1]
+            <pre class="output-hidden"><samp>[1]
 [1, 1]
 </samp></pre>
           </div>

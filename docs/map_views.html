@@ -24,7 +24,7 @@
 
       <div id="snippet-container">
         
-        <div>
+        <div hidden>
           <pre><code class="lang-ruby">h = {a: [1], b: [2]}
 values = h.values
 h[:c] = [3]
@@ -33,12 +33,12 @@ p values
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre><samp>[[1, 0], [2]]
+            <pre class="output-hidden"><samp>[[1, 0], [2]]
 </samp></pre>
           </div>
         </div>
         
-        <div>
+        <div hidden>
           <pre><code class="lang-python">d = {"a": [1], "b": [2]}
 values = d.values()
 d["c"] = [3]
@@ -47,7 +47,7 @@ print(values)
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre><samp>dict_values([[1, 0], [2], [3]])
+            <pre class="output-hidden"><samp>dict_values([[1, 0], [2], [3]])
 </samp></pre>
           </div>
         </div>

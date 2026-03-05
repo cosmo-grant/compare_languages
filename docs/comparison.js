@@ -37,11 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
       maxCodeHeight + BUFFER + "px";
   }
 
-  // Hide outputs initially.
-  for (const snippet of snippets) {
-    snippet.querySelector(".output-section pre").classList.add("output-hidden");
-  }
-
   setupOutputToggles(snippets);
 
   for (let i = 0; i < tabButtons.length; i++) {

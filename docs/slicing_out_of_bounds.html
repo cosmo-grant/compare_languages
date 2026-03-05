@@ -26,18 +26,18 @@
 
       <div id="snippet-container">
         
-        <div>
+        <div hidden>
           <pre><code class="lang-javascript">const arr = [0, 1, 2, 3, 4]
 console.log(arr.slice(2, 50))
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre><samp>[ 2, 3, 4 ]
+            <pre class="output-hidden"><samp>[ 2, 3, 4 ]
 </samp></pre>
           </div>
         </div>
         
-        <div>
+        <div hidden>
           <pre><code class="lang-golang">package main
 
 import "fmt"
@@ -49,18 +49,18 @@ func main() {
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre><samp>panic: runtime error: slice bounds out of range [:50] with capacity 5
+            <pre class="output-hidden"><samp>panic: runtime error: slice bounds out of range [:50] with capacity 5
 </samp></pre>
           </div>
         </div>
         
-        <div>
+        <div hidden>
           <pre><code class="lang-python">lst = [0, 1, 2, 3, 4]
 print(lst[2:50])
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre><samp>[2, 3, 4]
+            <pre class="output-hidden"><samp>[2, 3, 4]
 </samp></pre>
           </div>
         </div>

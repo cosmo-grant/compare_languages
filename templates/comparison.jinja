@@ -22,11 +22,11 @@
 
       <div id="snippet-container">
         {% for snippet in snippets %}
-        <div>
+        <div hidden>
           <pre><code class="lang-{{ snippet.language }}">{{ snippet.code }}</code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre><samp>{{ snippet.output }}</samp></pre>
+            <pre class="output-hidden"><samp>{{ snippet.output }}</samp></pre>
           </div>
         </div>
         {% endfor %}

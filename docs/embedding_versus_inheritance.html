@@ -24,7 +24,7 @@
 
       <div id="snippet-container">
         
-        <div>
+        <div hidden>
           <pre><code class="lang-golang">package main
 
 import "fmt"
@@ -48,12 +48,12 @@ func main() {
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre><samp>inner
+            <pre class="output-hidden"><samp>inner
 </samp></pre>
           </div>
         </div>
         
-        <div>
+        <div hidden>
           <pre><code class="lang-python">class Inner:
     def F(self):
         return self.G()
@@ -72,7 +72,7 @@ print(o.F())
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre><samp>outer
+            <pre class="output-hidden"><samp>outer
 </samp></pre>
           </div>
         </div>
