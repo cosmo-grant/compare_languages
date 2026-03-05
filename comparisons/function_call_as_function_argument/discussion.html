@@ -1,18 +1,18 @@
 <p>When is <code>foo()</code> called?</p>
 
 <p>
-In Node, it's called when <code>bar()</code> is called without passing a value for <code>x</code>.
+In node, it's called when <code>bar()</code> is called without passing a value for <code>x</code>.
 Defaults are evaluated per <em>call</em>, when necessary.
 </p>
 
 <p>
-In Python, it's called once, at definition time.
+In python, it's called once, at definition time.
 (Its return value, <code>None</code>, is stored in <code>foo.__defaults__</code>.)
 Defaults are evaluated per <em>function</em>, no matter what.
 </p>
 
 <p>
-Mutable defaults are a bad idea in Python.
+Mutable defaults are a bad idea in python.
 (Calls share the default, so see each other's mutations.)
 Setting defaults via function calls is a bad idea too.
 (Calls share the default, so the default-setting function only runs once.)
