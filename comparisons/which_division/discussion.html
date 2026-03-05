@@ -1,29 +1,50 @@
-Both snippets feature a division operator spelled `/`. In the python snippet, in
-the first `print` it operates on two integers and the result is a float, and in
-the second `print` it operates on two floats and the result is a float. The `/`
-operator is true division both given integers and given floats. In the rust
-snippet, in the first `print` it operates on two integers and the result is an
-integer, and in the second `print` it operates on two floats and the result is a
-float. The `/` operator is truncated division given integers and true division
-given floats. This way of putting things seems adequate to me in practice, but
-also misleading. It makes it sound as though in python `/` is univocal (true
-division in both occurrences) but in rust `/` is equivocal (truncated division
-in the first occurrence, true division in the second, the meaning determined by
-its operands' types). It makes it sound as though `/` in rust may be approximate
-or exact. It makes it sound as though arithmetic operators in programming
-languages operate on numbers. In fact, surely `/` is univocal in rust as well as
-python, it's ill-posed to ask whether the operation is approximate or exact, and
-the arithmetic operators operate on typed values. So how should we put things
-then, short of reciting python and rust's implementations? Perhaps something
-like: "You know the mapping between the typed values the operators operate on
-and the numbers you learned about in school. In python, `/` works like this: map
-its operands to school numbers, divide the school numbers, and map the result
-back to a float. (Thus: python's `1` and `2` map to one and two, dividing which
-gives a half, and mapping back to a float gives `0.5`. Ditto for `1.0` and
-`2.0`.) In rust, `/` works like this: map its operands to school numbers, divide
-the school numbers, and truncate the result as necessary so that what it maps
-back to is the same type as the operands. (Thus: rust's `1` and `2` map to one
-and two, dividing which gives a half, which has to be truncated to zero to map
-back to an integer, namely `0`. Ditto for `1.0` and `2.0`, except no truncation
-is needed: you can map a half itself back to `0.5`.)" A mouthful, sure, but
-clearer I think.
+<p>Both snippets feature a division operator spelled <code>/</code>.</p>
+
+<p>
+  In the python snippet, in the first <code>print</code> it operates on two integers and the result is a float,
+  and in the second <code>print</code> it operates on two floats and the result is a float.
+  The <code>/</code> operator is true division both given integers and given floats.
+</p>
+
+<p>
+  In the rust snippet, in the first <code>print</code> it operates on two integers and the result is an integer,
+  and in the second <code>print</code> it operates on two floats and the result is a float.
+  The <code>/</code> operator is truncated division given integers and true division given floats.
+</p>
+
+<p>
+  This way of putting things seems adequate to me in practice, but also misleading.
+  It makes it sound as though in python <code>/</code> is univocal (true division in both occurrences)
+  but in rust <code>/</code> is equivocal (truncated division in the first occurrence, true division in the second,
+  the meaning determined by its operands' types).
+  It makes it sound as though <code>/</code> in rust may be approximate or exact.
+  It makes it sound as though arithmetic operators in programming languages operate on numbers.
+</p>
+
+<p>
+  In fact, surely <code>/</code> is univocal in rust as well as python, 
+  it's ill-posed to ask whether the operation is approximate or exact,
+  and the arithmetic operators operate on typed values.
+</p>
+
+<p>
+  So how should we put things then, short of reciting python and rust's implementations?
+  Perhaps something like the following.
+</p>
+
+<p>
+  You know the mapping between the typed values the operators operate on and the numbers you learned about in school.
+  In python, <code>/</code> works like this: map its operands to school numbers, divide the school numbers, and map the result back to a float.
+  (Thus: python's <code>1</code> and <code>2</code> map to one and two, dividing which gives a half, and mapping back to a float gives <code>0.5</code>.
+  Ditto for <code>1.0</code> and <code>2.0</code>.)
+</p>
+
+<p>
+  In rust, <code>/</code> works like this: map its operands to school numbers, divide the school numbers, and truncate the result as necessary so that what it maps back to is the same type as the operands.
+  (Thus: rust's <code>1</code> and <code>2</code> map to one and two, dividing which gives a half, which has to be truncated to zero to map back to an integer, namely <code>0</code>.
+  Ditto for <code>1.0</code> and <code>2.0</code>, except no truncation is needed: you can map a half itself back to <code>0.5</code>.)
+</p>
+
+<p>
+  A mouthful, sure, but clearer I think.
+</p>
