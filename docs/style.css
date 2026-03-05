@@ -135,6 +135,10 @@ samp {
   margin-top: 1em;
 }
 
+#discussion pre {
+  margin: 1em 0;
+}
+
 :focus-visible {
   outline: 2px solid var(--link-color);
   outline-offset: 2px;
