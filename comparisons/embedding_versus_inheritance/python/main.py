@@ -1,15 +1,15 @@
-class Inner:
-    def F(self):
-        return self.G()
+class Parent:
+    def f(self):
+        return self.g()
 
-    def G(self):
-        return "inner"
-
-
-class Outer(Inner):
-    def G(self):
-        return "outer"
+    def g(self):
+        return "parent"
 
 
-o = Outer()
-print(o.F())
+class Child(Parent):
+    def g(self):
+        return "child"
+
+
+c = Child()
+print(c.f())

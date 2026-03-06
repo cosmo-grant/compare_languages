@@ -1,0 +1,23 @@
+<p><code>Inner</code> and <code>Outer</code>'s relationship is like and unlike <code>Parent</code> and <code>Child</code>'s.</p>
+
+<p>
+  <code>Inner</code> is an embedded field in <code>Outer</code>.
+  Fields or methods declared on an embedded field are promoted to the containing struct.
+  So we can call <code>o.F()</code> ok.
+</p>
+
+<p>
+  <code>Parent</code> is an ancestor of <code>Child</code>.
+  Attributes defined on an ancestor are available to its descendants.
+  So we can call <code>c.f()</code> ok.
+</p>
+
+<p>
+  In go, promoted methods don't know they're embedded.
+  So <code>i.G()</code> returns <code>"inner"</code> even when called via <code>o.F()</code>.
+</p>
+
+<p>
+  In python, methods know their receiver: it's stored in <code>self</code>.
+  So <code>self.g()</code> returns <code>"child"</code> when the receiver is <code>c</code>.
+</p>
