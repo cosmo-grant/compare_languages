@@ -33,7 +33,6 @@
 g = gen();
 console.log(g.next())
 console.log(g.next())
-console.log(g.next())
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
@@ -52,7 +51,6 @@ console.log(g.next())
 g = gen()
 print(next(g))
 print(next(g))
-print(next(g))
 
 </code></pre>
           <div class="output-section">
@@ -66,7 +64,24 @@ StopIteration: 2
       </div>
 
       <div id="discussion">
-        
+        <p>What happens when you <code>return</code> in a generator?</p>
+
+<p>
+  In node, the <code>next()</code> method returns an object with properties <code>value</code> and <code>done</code>, as usual,
+  where <code>value</code> is what was returned and <code>done</code> is <code>true</code>.
+</p>
+
+<p>
+  In python, <code>return</code> in a generator raises a <code>StopIteration</code>,
+  and the exception's <code>value</code> attribute is set to the return value.
+</p>
+
+<p>
+  Alike in that <code>return</code> finishes a generator.
+  Unalike in how the return value is extracted:
+  out the front door, in the usual way, or smuggled out the back.
+</p>
+
       </div>
     </main>
 
