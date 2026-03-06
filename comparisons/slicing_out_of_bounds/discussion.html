@@ -1,2 +1,28 @@
-python returns any items with indices in the given range. This is an example of
-what John Ousterhout calls "defining errors out of existence". Go is stricter.
+<p>
+  John Ousterhout recommends "defining errors out of existence":
+</p>
+
+<blockquote>
+  The best way to eliminate exception handling complexity is to define your APIs
+  so that there are no exceptions to handle: define errors out of existence.
+  <footer>— <cite>A Philosophy of Software Design</cite>, p81</footer>
+</blockquote>
+
+<p>
+  One of his examples is slicing, as here.
+  If you define slicing as "get the item at index <em>i</em> for <em>start &lt;= i &lt; end</em>",
+  you must error for out of bounds indexes.
+  But if you define it as "get any items with indexes at least <em>start</em>and less than <em>end</em>",
+  you needn't.
+</p>
+
+<p>Compare <a href="./looking_up_non_existent_keys.html">looking up non existent keys</a>.</p>
+
+<p>
+  I remembered Ousterhout's advice when writing a function to get how long since a task had started.
+  What should the function return if the task hadn't started yet?
+  I originally had it throw an exception.
+  But it was better to follow Ousterhout's advice:
+  instead of asking "how long since the task started?" and throwing an exception,
+  ask "how long has the task been running?" and return <code>0</code>.
+</p>
