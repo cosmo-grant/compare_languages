@@ -1,1 +1,2 @@
-ReferenceError: Cannot access 'x' before initialization
+1
+ReferenceError: Cannot access 'y' before initialization

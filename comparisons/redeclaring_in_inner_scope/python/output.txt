@@ -1,1 +1,2 @@
-UnboundLocalError: cannot access local variable 'x' where it is not associated with a value
+1
+UnboundLocalError: cannot access local variable 'y' where it is not associated with a value
