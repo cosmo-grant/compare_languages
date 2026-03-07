@@ -68,18 +68,18 @@ bar()
         <p>When is <code>foo()</code> called?</p>
 
 <p>
-In node, it's called when <code>bar()</code> is called without passing a value for <code>x</code>.
+In Node, it's called when <code>bar()</code> is called without passing a value for <code>x</code>.
 Defaults are evaluated per <em>call</em>, when necessary.
 </p>
 
 <p>
-In python, it's called once, at definition time.
+In Python, it's called once, at definition time.
 (Its return value, <code>None</code>, is stored in <code>foo.__defaults__</code>.)
 Defaults are evaluated per <em>function</em>, no matter what.
 </p>
 
 <p>
-Mutable defaults are a bad idea in python.
+Mutable defaults are a bad idea in Python.
 (Calls share the default, so see each other's mutations.)
 Setting defaults via function calls is a bad idea too.
 (Calls share the default, so the default-setting function only runs once.)
@@ -87,7 +87,7 @@ Two aspects of the same language feature.
 </p>
 
 <p>In a code review once I saw something like</p>
-<pre><code class="lang-python">def create_customer(id=uuid4()): ... </code></pre>
+<pre><code class="lang-Python">def create_customer(id=uuid4()): ... </code></pre>
 <p>dooming us never to land a second sale.</p>
 
       </div>

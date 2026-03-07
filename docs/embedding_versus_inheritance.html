@@ -95,12 +95,12 @@ print(c.f())
 </p>
 
 <p>
-  In go, promoted methods don't know they're embedded.
+  In Go, promoted methods don't know they're embedded.
   So <code>i.G()</code> returns <code>"inner"</code> even when called via <code>o.F()</code>.
 </p>
 
 <p>
-  In python, methods know their receiver: it's stored in <code>self</code>.
+  In Python, methods know their receiver: it's stored in <code>self</code>.
   So <code>self.g()</code> returns <code>"child"</code> when the receiver is <code>c</code>.
 </p>
 

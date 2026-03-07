@@ -73,9 +73,9 @@ print(d["bar"])
 </p>
 
 <p>
-  In python, it raises an exception.
-  In go, you get the value type's zero value. 
-  In ruby, you get <code>nil</code>.
+  In Python, it raises an exception.
+  In Go, you get the value type's zero value. 
+  In Ruby, you get <code>nil</code>.
 </p>
 
 <p>
@@ -97,35 +97,35 @@ print(d["bar"])
 <p>
   I agree with the examples Ousterhout talks about in the book.
   But I'm not sure about key lookup.
-  Don't you typically need to know whether the value you got is just the fallback?
+  Don't you typically need to know whether the value you Got is just the fallback?
 </p>
 
 <p>
-  Sure, in go you can check that via comma ok
+  Sure, in Go you can check that via comma ok
   (<code>v, ok = m["bar"]</code>, where <code>ok</code> flags if the key is in the map),
-  and in ruby via <code>h.has_key?("bar")</code>,
+  and in Ruby via <code>h.has_key?("bar")</code>,
   then branch accordingly.
   My point is that then you don't end up with simpler code.
-  A <code>try/except</code> in python becomes an <code>if</code> in go and ruby.
+  A <code>try/except</code> in Python becomes an <code>if</code> in Go and Ruby.
 </p>
 
 <p>
-  Besides, python provides <code>d.get()</code> for safe lookups if that's what you want.
-  (Perhaps Ousterhout would reply, "python wouldn't need a second method if it had defined the first one right".)
+  Besides, Python provides <code>d.get()</code> for safe lookups if that's what you want.
+  (Perhaps Ousterhout would reply, "Python wouldn't need a second method if it had defined the first one right".)
 </p>
 
 <p>
-  It's interesting that python's <code>Counter</code> type, a <code>dict</code> subclass, returns 0 for missing keys.
+  It's interesting that Python's <code>Counter</code> type, a <code>dict</code> subclass, returns 0 for missing keys.
 </p>
 
-  <pre><code class="lang-python">from collections import Counter
+  <pre><code class="lang-Python">from collections import Counter
 c = Counter(["foo", "bar", "foo"])
 print(c["baz"])  # 0
   </code></pre>
 
 <p>
-  And that in python <code>[]</code> errors but the supplementary <code>get()</code> returns a fallback,
-  in ruby <code>[]</code> returns a fallback and the supplementary <code>fetch()</code> errors.
+  And that in Python <code>[]</code> errors but the supplementary <code>get()</code> returns a fallback,
+  in Ruby <code>[]</code> returns a fallback and the supplementary <code>fetch()</code> errors.
 </p>
 
       </div>

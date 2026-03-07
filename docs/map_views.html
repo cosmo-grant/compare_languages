@@ -58,7 +58,7 @@ for v in vals:
 
       <div id="discussion">
         <p>
-  In ruby, <code>Hash#values</code> returns a new <em>array</em> of the receiver's values.
+  In Ruby, <code>Hash#values</code> returns a new <em>array</em> of the receiver's values.
 </p>
 
 <p>
@@ -69,14 +69,14 @@ for v in vals:
 </p>
 
 <p>
-  In python, <code>dict.values()</code> returns a <em>view object</em>:
+  In Python, <code>dict.values()</code> returns a <em>view object</em>:
   a dynamic proxy of the dictionary's values.
 </p>
 
 <p>
   Sure, <code>vals</code> sees mutations to those values.
   But so would <code>[d[k] for k in d]</code>,
-  since, like ruby, lists contains pointers to values, not the values themselves.
+  since, like Ruby, lists contains pointers to values, not the values themselves.
   What makes it dynamic is that it sees values added to <code>d</code> too.
 </p>
 
