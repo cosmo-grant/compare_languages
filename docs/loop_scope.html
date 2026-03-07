@@ -29,23 +29,21 @@
       <div id="snippet-container">
         
         <div hidden>
-          <pre><code class="lang-javascript">const arr = [];
+          <pre><code class="lang-javascript">const closures = [];
 
-let i;
-
-for (i = 0; i < 3; i++) {
-  arr.push(function () { console.log(i) });
+for (let i = 0; i < 3; i++) {
+  closures.push(function () { console.log(i) });
 }
 
-arr[0]();
-arr[1]();
-arr[2]();
+closures[0]();
+closures[1]();
+closures[2]();
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre class="output-hidden"><samp>3
-3
-3
+            <pre class="output-hidden"><samp>0
+1
+2
 </samp></pre>
           </div>
         </div>
@@ -56,13 +54,13 @@ arr[2]();
 import "fmt"
 
 func main() {
-	s := make([]func() int, 0)
+	closures := make([]func() int, 0)
 	for i := 0; i < 3; i++ {
-		s = append(s, func() int { return i })
+		closures = append(closures, func() int { return i })
 	}
-	fmt.Println(s[0]())
-	fmt.Println(s[1]())
-	fmt.Println(s[2]())
+	fmt.Println(closures[0]())
+	fmt.Println(closures[1]())
+	fmt.Println(closures[2]())
 }
 </code></pre>
           <div class="output-section">
@@ -80,13 +78,13 @@ func main() {
 import "fmt"
 
 func main() {
-	s := make([]func() int, 0)
+	closures := make([]func() int, 0)
 	for i := 0; i < 3; i++ {
-		s = append(s, func() int { return i })
+		closures = append(closures, func() int { return i })
 	}
-	fmt.Println(s[0]())
-	fmt.Println(s[1]())
-	fmt.Println(s[2]())
+	fmt.Println(closures[0]())
+	fmt.Println(closures[1]())
+	fmt.Println(closures[2]())
 }
 </code></pre>
           <div class="output-section">
@@ -99,14 +97,14 @@ func main() {
         </div>
         
         <div hidden>
-          <pre><code class="lang-python">arr = []
+          <pre><code class="lang-python">closures = []
 
 for i in range(3):
-    arr.append(lambda : i)
+    closures.append(lambda : i)
 
-print(arr[0]())
-print(arr[1]())
-print(arr[2]())
+print(closures[0]())
+print(closures[1]())
+print(closures[2]())
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
@@ -120,7 +118,25 @@ print(arr[2]())
       </div>
 
       <div id="discussion">
-        
+        <p>How many variables named <code>i</code>?</p>
+
+<p>
+  Python and go1.21 answer: one.
+  Its value is 0, then 1, then 2, then 3.
+  Loop variables are per-loop, not per-iteration.
+  <code>closures</code>' closures all see that one variable.
+  When the closures are called, its value is 3.
+</p>
+
+<p>
+  Node and go1.22 answer: three (or is it four?).
+  The first has value 0, the second 1, the third 2, and their values don't change.
+  Loop variables are per-iteration, not per-loop.
+  <code>closures</code>' closures see the corresponding variable.
+</p>
+
+<p>A discussion of the go change is <a href="https://go.dev/blog/loopvar-preview">here</a>.</p>
+
       </div>
     </main>
 

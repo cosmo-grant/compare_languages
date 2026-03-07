@@ -1,8 +1,8 @@
-arr = []
+closures = []
 
 for i in range(3):
-    arr.append(lambda : i)
+    closures.append(lambda : i)
 
-print(arr[0]())
-print(arr[1]())
-print(arr[2]())
+print(closures[0]())
+print(closures[1]())
+print(closures[2]())
