@@ -1,3 +1,2 @@
 { value: 1, done: false }
 { value: 2, done: true }
-{ value: undefined, done: true }
