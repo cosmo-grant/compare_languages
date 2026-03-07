@@ -17,7 +17,9 @@ my_cool_comparison
 
 ## How to check the comparisons
 
-Use `snippet-checker`, e.g. `uv tool run snippet-checker output comparisons`.
+Use [snippet-checker](https://github.com/cosmo-grant/snippet-checker).
+
+`uv tool run snippet-checker output comparisons`
 
 ## How to generate the site
 
