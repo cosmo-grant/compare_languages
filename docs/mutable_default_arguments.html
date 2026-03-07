@@ -60,7 +60,15 @@ foo()
       </div>
 
       <div id="discussion">
-        evaluated once, at definition time evaluated per call
+        <p>
+  In Node, default arguments are evaluated per <em>call</em>.
+  In Python, they're evaluated per <em>function</em>, at definition time.
+  (The value is stored in <code>foo.__defaults__</code>.)
+  Calls share the default, so see each other's mutations.
+  Dangerous!
+</p>
+
+<p>Compare: <a href="./function_call_as_function_argument">function call as function argument</a>.</p>
 
       </div>
     </main>
