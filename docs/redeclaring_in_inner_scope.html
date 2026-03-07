@@ -28,18 +28,21 @@
         
         <div hidden>
           <pre><code class="lang-javascript">let x = 1
+let y = 2
 
 function main() {
   console.log(x);
-  let x = 2;
-  console.log(x);
+  console.log(y);
+  let y = 3;
+  console.log(y);
 }
 
 main()
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre class="output-hidden"><samp>ReferenceError: Cannot access 'x' before initialization
+            <pre class="output-hidden"><samp>1
+ReferenceError: Cannot access 'y' before initialization
 </samp></pre>
           </div>
         </div>
@@ -50,34 +53,41 @@ main()
 import "fmt"
 
 var x = 1
+var y = 2
 
 func main() {
 	fmt.Println(x)
-	var x = 2
-	fmt.Println(x)
+	fmt.Println(y)
+	var y = 3
+	fmt.Println(y)
 }
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
             <pre class="output-hidden"><samp>1
 2
+3
 </samp></pre>
           </div>
         </div>
         
         <div hidden>
           <pre><code class="lang-python">x = 1
+y = 2
 
 def main():
     print(x)
-    x = 2
-    print(x)
+    print(y)
+    y = 3
+    print(y)
 
 main()
+
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre class="output-hidden"><samp>UnboundLocalError: cannot access local variable 'x' where it is not associated with a value
+            <pre class="output-hidden"><samp>1
+UnboundLocalError: cannot access local variable 'y' where it is not associated with a value
 </samp></pre>
           </div>
         </div>
@@ -85,7 +95,51 @@ main()
       </div>
 
       <div id="discussion">
-        
+        <p>
+  Node, Go and Python all resolve a variable name by checking enclosing scopes in order.
+  So they all print <code>1</code> ok.
+  But they differ in how variables are <em>hoisted</em>.
+</p>
+
+<p>
+  In Node, variables declared with <code>let</code> are <em>hoisted</em>:
+  i.e. if you declare a variable then all occurrences of the name in that scope,
+  including any occurrences before the declaration,
+  refer to that variable.
+  But the variable is not initialized until you assign to it.
+  So reading a variable before its declaration throws an error.
+</p>
+
+<p>
+  There's no hoisting in Go. 
+  If you declare a variable then all subsequent occurrences of the name in that scope
+  refer to that variable.
+  But previous occurrences are unaffected.
+  So the first <code>fmt.Println(y)</code> finds the package block's <code>y</code>, 
+  and the second finds the function block's.
+</p>
+
+<p>
+  In Python, you don't declare variables: you just read or assign to them.
+  If you assign to a variable then all occurrences of the name in that scope,
+  including any occurrences before the assignment,
+  refer to that variable.
+  So reading a variable before its assignment throws an error.
+</p>
+
+<p>
+  A qualification.
+  In Python, the <code>nonlocal</code> and <code>global</code> keywords do let you reassign variables in outer scopes.
+  If we added <code>global y</code> at the top of <code>main()</code>, then no error,
+  and <code>y</code> in the global scope would end up assigned to <code>3</code>.
+  In Node, you can achieve the same effect just by not declaring the variable in the current scope.
+</p>
+
+<p>
+  The key point: in Node and Python, either all or no occurrences of a variable name refer to a local variable;
+  but in Go, initial occurrences can refer to a non-local variable and later occurrences to a local variable.
+</p>
+
       </div>
     </main>
 
