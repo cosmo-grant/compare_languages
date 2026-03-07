@@ -62,9 +62,9 @@ for v in vals:
 </p>
 
 <p>
-  Like any other array, <code>val</code> contains pointers to values, not the values themselves.
+  Like any other array, <code>vals</code> contains pointers to values, not the values themselves.
   So it sees mutations to those values, no matter if the mutations are effected via <code>h</code>.
-  But it is as independent of <code>h</code> as any other array.
+  Apart from pointing at the same values, it is as independent of <code>h</code> as any other array.
   So it does not see values added to <code>h</code>.
 </p>
 
