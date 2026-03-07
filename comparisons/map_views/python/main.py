@@ -1,5 +1,6 @@
-d = {"a": [1], "b": [2]}
-values = d.values()
-d["c"] = [3]
-d["a"].append(0)
-print(values)
+d = {"a": [1]}
+vals = d.values()
+d["a"].append(2)
+d["b"] = 3
+for v in vals:
+    print(v)

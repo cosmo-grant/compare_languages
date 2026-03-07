@@ -1,5 +1,5 @@
-h = {a: [1], b: [2]}
-values = h.values
-h[:c] = [3]
-h[:a].push(0)
-p values
+h = {a: [1]}
+vals = h.values
+h[:a].push(2)
+h[:b] = 3 
+vals.each { |v| p v }

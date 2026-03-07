@@ -25,29 +25,31 @@
       <div id="snippet-container">
         
         <div hidden>
-          <pre><code class="lang-ruby">h = {a: [1], b: [2]}
-values = h.values
-h[:c] = [3]
-h[:a].push(0)
-p values
+          <pre><code class="lang-ruby">h = {a: [1]}
+vals = h.values
+h[:a].push(2)
+h[:b] = 3 
+vals.each { |v| p v }
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre class="output-hidden"><samp>[[1, 0], [2]]
+            <pre class="output-hidden"><samp>[1, 2]
 </samp></pre>
           </div>
         </div>
         
         <div hidden>
-          <pre><code class="lang-python">d = {"a": [1], "b": [2]}
-values = d.values()
-d["c"] = [3]
-d["a"].append(0)
-print(values)
+          <pre><code class="lang-python">d = {"a": [1]}
+vals = d.values()
+d["a"].append(2)
+d["b"] = 3
+for v in vals:
+    print(v)
 </code></pre>
           <div class="output-section">
             <button class="output-toggle">output</button>
-            <pre class="output-hidden"><samp>dict_values([[1, 0], [2], [3]])
+            <pre class="output-hidden"><samp>[1, 2]
+3
 </samp></pre>
           </div>
         </div>
@@ -55,7 +57,29 @@ print(values)
       </div>
 
       <div id="discussion">
-        
+        <p>
+  In ruby, <code>Hash#values</code> returns a new <em>array</em> of the receiver's values.
+</p>
+
+<p>
+  Like any other array, <code>val</code> contains pointers to values, not the values themselves.
+  So it sees mutations to those values, no matter if the mutations are effected via <code>h</code>.
+  But it is as independent of <code>h</code> as any other array.
+  So it does not see values added to <code>h</code>.
+</p>
+
+<p>
+  In python, <code>dict.values()</code> returns a <em>view object</em>:
+  a dynamic proxy of the dictionary's values.
+</p>
+
+<p>
+  Sure, <code>vals</code> sees mutations to those values.
+  But so would <code>[d[k] for k in d]</code>,
+  since, like ruby, lists contains pointers to values, not the values themselves.
+  What makes it dynamic is that it sees values added to <code>d</code> too.
+</p>
+
       </div>
     </main>
 
