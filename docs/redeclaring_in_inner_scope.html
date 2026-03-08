@@ -16,7 +16,7 @@
 
       <div id="tab-buttons">
       
-        <button>node</button>
+        <button>javascript</button>
       
         <button>go</button>
       
@@ -96,13 +96,13 @@ UnboundLocalError: cannot access local variable 'y' where it is not associated w
 
       <div id="discussion">
         <p>
-  Node, Go and Python all resolve a variable name by checking enclosing scopes in order.
+  Javascript, Go and Python all resolve a variable name by checking enclosing scopes in order.
   So they all print <code>1</code> ok.
   But they differ in how variables are <em>hoisted</em>.
 </p>
 
 <p>
-  In Node, variables declared with <code>let</code> are <em>hoisted</em>:
+  In Javascript, variables declared with <code>let</code> are <em>hoisted</em>:
   i.e. if you declare a variable then all occurrences of the name in that scope,
   including any occurrences before the declaration,
   refer to that variable.
@@ -132,11 +132,11 @@ UnboundLocalError: cannot access local variable 'y' where it is not associated w
   In Python, the <code>nonlocal</code> and <code>global</code> keywords do let you reassign variables in outer scopes.
   If we added <code>global y</code> at the top of <code>main()</code>, then no error,
   and <code>y</code> in the global scope would end up assigned to <code>3</code>.
-  In Node, you can achieve the same effect just by not declaring the variable in the current scope.
+  In Javascript, you can achieve the same effect just by not declaring the variable in the current scope.
 </p>
 
 <p>
-  The key point: in Node and Python, either all or no occurrences of a variable name refer to a local variable;
+  The key point: in Javascript and Python, either all or no occurrences of a variable name refer to a local variable;
   but in Go, initial occurrences can refer to a non-local variable and later occurrences to a local variable.
 </p>
 
