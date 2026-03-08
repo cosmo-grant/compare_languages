@@ -49,7 +49,26 @@ print(s.split())
       </div>
 
       <div id="discussion">
-        Surely Python is the sensible one here.
+        <p>
+  Surely Python is more sensible here.
+  In Node, if you want an array containing your string, clearer to write <code>[s]</code>.
+  If the separator is passed in, clearer to write something like <code>sep ? s.split(sep) : [s]</code>.
+</p>
+
+<p>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split">MDN</a> gives this example:
+</p>
+
+<pre><code class="lang-javascript">const strCopy = str.split();
+console.log(strCopy);
+// Expected output: Array ["The quick brown fox jumps over the lazy dog."]
+</code></pre>
+
+<p>
+  An odd example, because <code>strCopy</code> is not a string,
+  and copying is moot for immutables.
+  It doesn't explain Node's default behaviour.
+</p>
 
       </div>
     </main>
