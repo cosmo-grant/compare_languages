@@ -1,2 +1,3 @@
-False
-True
+<class 'int'>
+<class 'float'>
+2.0

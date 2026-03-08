@@ -1,0 +1,28 @@
+<p>
+  A language has type coercion if it implicitly converts a value of one type to another type in certain situations.
+  A language has operator overloading if an operator's implementation can depend on its operands' types.
+</p>
+
+<p>
+  Javascript has type coercion.
+  For example, if one of <code>+</code>'s operands is a string,
+  Javascript implicitly converts the other to a string too.
+  String addition is concatenation.
+  Javascript doesn't have operator overloading.
+</p>
+
+<p>
+  Python has operator overloading.
+  For example, to evaluate <code>x + y</code>,
+  Python first tries <code>x.__add__(y)</code>,
+  and falls back on <code>y.__radd__(x)</code>.
+  (There's a good diagram covering all cases in <<cite>Fluent Python, 2nd Edition, p. 573</cite>.)
+  Python doesn't have type coercion.
+</p>
+
+<p>
+  Type coercion and operator overloading here enable the same behaviour: adding values of different types.
+  But they're quite different.
+  Do languages tend to have at most one of the two?
+  What are the tradeoffs?
+</p>

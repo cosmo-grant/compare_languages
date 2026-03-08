@@ -1,2 +1,3 @@
-true
-true
+number
+string
+1foo
