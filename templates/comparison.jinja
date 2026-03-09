@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ title }} | Compare Languages</title>
+    <title>{{ comparison.title }} | Compare Languages</title>
     <meta name="author" content="Cosmo Grant" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="hljs-theme.css" />
@@ -12,16 +12,16 @@
   <body>
     <main>
       <a href="index.html" class="back-link" aria-label="Back to index">&larr;</a>
-      <h1>{{ title }}</h1>
+      <h1>{{ comparison.title }}</h1>
 
       <div id="tab-buttons">
-      {% for snippet in snippets %}
+      {% for snippet in comparison.snippets %}
         <button>{{ snippet.title }}</button>
       {% endfor %}
       </div>
 
       <div id="snippet-container">
-        {% for snippet in snippets %}
+        {% for snippet in comparison.snippets %}
         <div hidden>
           <pre><code class="lang-{{ snippet.language }}">{{ snippet.code }}</code></pre>
           <div class="output-section">
@@ -33,7 +33,7 @@
       </div>
 
       <div id="discussion">
-        {{ discussion }}
+        {{ comparison.discussion }}
       </div>
     </main>
 

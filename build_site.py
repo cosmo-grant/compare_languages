@@ -101,20 +101,7 @@ class SiteBuilder:
 
     def build_comparisons(self) -> None:
         for comparison in self.comparisons:
-            comparison_content = self.comparison_template.render(
-                snippets=[
-                    {
-                        "title": snippet.title,
-                        "language": snippet.language,
-                        "code": snippet.code,
-                        "output": snippet.output,
-                    }
-                    for snippet in comparison.snippets
-                ],
-                discussion=comparison.discussion,
-                title=comparison.title,
-            )
-
+            comparison_content = self.comparison_template.render(comparison=comparison)
             (self.output_directory / comparison.output_filename).write_text(comparison_content)
 
     def build(self) -> None:
