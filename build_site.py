@@ -74,11 +74,13 @@ class Snippet:
 
     @property
     def code(self) -> str:
-        return self._get_snippet_path().read_text()
+        plain = self._get_snippet_path().read_text()
+        return escape_html(plain)
 
     @property
     def output(self) -> str:
-        return (self.dir / "output.txt").read_text()
+        plain = (self.dir / "output.txt").read_text()
+        return escape_html(plain)
 
 
 class SiteBuilder:
@@ -118,6 +120,11 @@ class SiteBuilder:
     def build(self) -> None:
         self.build_comparisons()
         self.build_index()
+
+
+def escape_html(plain: str) -> str:
+    """I follow the mdn docs rule of thumb: escape &, then <; anything else is optional."""
+    return plain.replace("&", "&amp;").replace("<", "&lt;")  # order matters
 
 
 def main() -> None:

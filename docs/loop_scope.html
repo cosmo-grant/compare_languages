@@ -31,7 +31,7 @@
         <div hidden>
           <pre><code class="lang-javascript">const closures = [];
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i &lt; 3; i++) {
   closures.push(function () { console.log(i) });
 }
 
@@ -55,7 +55,7 @@ import "fmt"
 
 func main() {
 	closures := make([]func() int, 0)
-	for i := 0; i < 3; i++ {
+	for i := 0; i &lt; 3; i++ {
 		closures = append(closures, func() int { return i })
 	}
 	fmt.Println(closures[0]())
@@ -79,7 +79,7 @@ import "fmt"
 
 func main() {
 	closures := make([]func() int, 0)
-	for i := 0; i < 3; i++ {
+	for i := 0; i &lt; 3; i++ {
 		closures = append(closures, func() int { return i })
 	}
 	fmt.Println(closures[0]())
