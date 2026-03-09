@@ -30,6 +30,7 @@ class Comparison:
 
     @property
     def title(self) -> str:
+        """A short title, used in index and document title."""
         return self.dir.name.replace("_", " ")
 
     @property
@@ -38,6 +39,7 @@ class Comparison:
 
     @property
     def output_filename(self) -> str:
+        """Name of the file generated from the template."""
         return f"{self.dir.name}.html"
 
 
@@ -61,6 +63,7 @@ class Snippet:
 
     @property
     def title(self) -> str:
+        """Label on tab button."""
         return self.dir.name
 
     def _get_snippet_path(self) -> Path:
@@ -70,6 +73,7 @@ class Snippet:
 
     @property
     def language(self) -> str:
+        """Used in class="lang-<...>" for hljs syntax highlighting."""
         return self.EXTENSION_TO_HLJS_LANGUAGE[self._get_snippet_path().suffix]
 
     @property
