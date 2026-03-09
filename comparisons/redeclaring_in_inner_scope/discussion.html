@@ -1,11 +1,11 @@
 <p>
   Javascript, Go and Python all resolve a variable name by checking enclosing scopes in order.
-  So they all print <code>1</code> ok.
-  But they differ in how variables are <em>hoisted</em>.
+  So they all print <code>x</code> ok.
+  <code>y</code> is another story.
 </p>
 
 <p>
-  In Javascript, variables declared with <code>let</code> are <em>hoisted</em>:
+  In Javascript, variables declared with <code>let</code> are hoisted:
   i.e. if you declare a variable then all occurrences of the name in that scope,
   including any occurrences before the declaration,
   refer to that variable.
