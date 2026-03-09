@@ -5,10 +5,10 @@ build: format
 
 format:
 	uv tool run ruff format --exclude comparisons/**.py
-	npx prettier --write .
+	prettier --write .
 
 preview:
-	npx live-server docs
+	live-server docs
 
 view:
 	xdg-open https://cosmo-grant.github.io/compare_languages/
